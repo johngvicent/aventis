@@ -1,0 +1,128 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GSAPContacto from '../components/GSAPContacto.astro';
+
+---
+
+<Layout>
+    <main>
+            <article>
+				<div class="relative h-120 pt-10! px-12! pb-6! bg-[url(/galicia-playa.jpg)] bg-cover bg-center flex flex-col justify-center items-center text-center text-white overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-black/40 before:z-0">
+                    <h3 class="relative text-7xl! font-extrabold tracking-wider text-shadow-lg/20 text-white!">Contacto</h3>
+                    <h4 class="relative text-3xl font-extrabold tracking-wider text-shadow-lg/20 text-white!">Te ayudamos a planificar tu próximo viaje</h4>
+                </div>
+				<div class="contenido-articulo">
+				<p>Aventis se distingue por su servicio personalizado y atención al detalle. Desde el momento en que contactas con la agencia, un equipo de expertos se dedica a entender tus necesidades y deseos, creando un viaje que se adapte perfectamente a ti. Al contratarnos ofrecemos una serie de ventajas que pueden transformar un viaje ordinario en una experiencia extraordinaria. Para considerar nuestros servicios puedes consultar nuestros artículos detallados.</p>
+			</div>
+		</article>
+
+        <GSAPContacto/>
+
+        <article class="flex flex-col md:flex-row justify-center items-center gap-10! pt-10! px-12! pb-6! bg-[url(/iglesia-pirenaica.jpg)] bg-cover bg-center">
+            <div class="flex flex-col justify-center items-center text-center text-white w-full">
+                    <h2 class="text-5xl! font-extrabold tracking-wider text-shadow-lg/20 text-white!">Te ayudamos a crear tu viaje</h2>
+                    <p class="text-2xl! font-semibold! tracking-wider text-shadow-lg/20 text-white!">Escríbenos, llámanos o ven a vernos, estamos a tu disposición.</p>
+                    <p class="text-2xl! font-semibold! tracking-wider text-shadow-lg/20 text-white!">Para ser atendido presencialmente debes solicitar cita previa.</p>
+            </div>
+
+            <div class="form-container">
+                <div class="success-message" id="successMessage">
+                    ¡Formulario enviado correctamente!
+                </div>
+                
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="nombre"></label>
+                        <input type="text" id="nombre" placeholder="Nombre" name="nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email"></label>
+                        <input type="email" id="email" placeholder="Email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono"></label>
+                        <input type="tel" id="telefono" placeholder="Teléfono" name="telefono" required>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <label>¿Sobre qué es tu consulta?</label>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="ofertas" name="consulta" value="ofertas">
+                            <label for="ofertas">Ofertas</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="lunaMiel" name="consulta" value="luna-de-miel">
+                            <label for="lunaMiel">Luna de miel</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="eventos" name="consulta" value="eventos">
+                            <label for="eventos">Eventos</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="conciertos" name="consulta" value="conciertos">
+                            <label for="conciertos">Conciertos</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="escapadas" name="consulta" value="escapadas">
+                            <label for="escapadas">Escapadas</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="alquiler" name="consulta" value="alquiler-chalet">
+                            <label for="alquiler">Alquiler de chalet</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="otros" name="consulta" value="otros">
+                            <label for="otros">Otros</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje"></label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Consúltanos aquí" required></textarea>
+                    </div>
+
+                    <div class="terms-group">
+                        <input type="checkbox" id="terminos" name="terminos" required>
+                        <label for="terminos">He leído y acepto la información básica sobre protección de datos así como el aviso legal, la política de privacidad y acepto el tratamiento de mis datos para realizar la solicitud realizada.</label>
+                    </div>
+
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </article>
+        <article>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3544.805006289809!2d-0.8942919911523081!3d41.65976439973477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5914b8e64cbdc3%3A0x3b130dcf0df72a4e!2sPlaza%20Europa!5e0!3m2!1ses!2ses!4v1765236941479!5m2!1ses!2ses" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </article>
+    </main>
+    <script is:inline>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const consultas = [];
+            formData.getAll('consulta').forEach(consulta => {
+                consultas.push(consulta);
+            });
+
+            console.log('Datos del formulario:', {
+                nombre: formData.get('nombre'),
+                email: formData.get('email'),
+                telefono: formData.get('telefono'),
+                consultas: consultas,
+                mensaje: formData.get('mensaje'),
+                terminosAceptados: formData.get('terminos') ? 'Sí' : 'No'
+            });
+
+            document.getElementById('successMessage').style.display = 'block';
+            this.reset();
+
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 3000);
+        });
+    </script>
+</Layout>

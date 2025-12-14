@@ -1,0 +1,312 @@
+---
+// Frontmatter vacío - toda la lógica va al cliente
+---
+
+<section class="horizontal-scroll-section">
+    <div class="scroll-container">
+        <div class="cards-wrapper">
+            <!-- Card 1 -->
+            <div class="scroll-card">
+                <div class="card-content relative bg-[url(/carrusel-asturias.jpg)] bg-cover bg-center rounded-2xl shadow-2xl flex flex-col justify-center items-center text-center overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-black/40 before:z-0">
+                    <h2 class="relative z-10 text-white text-6xl font-bold drop-shadow-2xl">Destinos</h2>
+                    <p class="relative z-10 text-white text-2xl mt-4 font-semibold drop-shadow-lg px-8">Diseñamos tu viaje de ensueño.</p>
+                    <button class="relative z-10 mt-6"><a href="/blog">Reserva Ahora</a></button>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="scroll-card">
+                <div class="card-content relative bg-[url(/carrusel-evento.jpg)] bg-cover bg-center rounded-2xl shadow-2xl flex flex-col justify-center items-center text-center overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-black/50 before:z-0">
+                    <h2 class="relative z-10 text-white text-6xl font-bold drop-shadow-2xl">Eventos</h2>
+                    <p class="relative z-10 text-white text-2xl mt-4 font-semibold drop-shadow-lg px-8">Entradas a conciertos y ocasiones exclusivas.</p>
+                    <button class="relative z-10 mt-6"><a href="/blog">Reserva Ahora</a></button>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="scroll-card">
+                <div class="card-content relative bg-[url(/carrusel-hotel.jpg)] bg-cover bg-center rounded-2xl shadow-2xl flex flex-col justify-center items-center text-center overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-black/40 before:z-0">
+                    <h2 class="relative z-10 text-white text-6xl font-bold drop-shadow-2xl">Hoteles</h2>
+                    <p class="relative z-10 text-white text-2xl mt-4 font-semibold drop-shadow-lg px-8">Reservamos tu estancia y actividades.</p>
+                    <button class="relative z-10 mt-6"><a href="/blog">Reserva Ahora</a></button>
+                </div>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="scroll-card">
+                <div class="card-content relative bg-[url(/carrusel-chalet.jpg)] bg-cover bg-center rounded-2xl shadow-2xl flex flex-col justify-center items-center text-center overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-black/50 before:z-0">
+                    <h2 class="relative z-10 text-white text-6xl font-bold drop-shadow-2xl">Chalets</h2>
+                    <p class="relative z-10 text-white text-2xl mt-4 font-semibold drop-shadow-lg px-8">Alquilamos los alojamientos más exclusivos</p>
+                    <button class="relative z-10 mt-6"><a href="/blog">Reserva Ahora</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Container principal con altura suficiente para scroll */
+    .horizontal-scroll-section {
+        position: relative;
+        width: 100%;
+        /* La altura se calcula dinámicamente con JS */
+    }
+
+    .scroll-container {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+
+    .cards-wrapper {
+        display: flex;
+        gap: 3rem;
+        padding: 0 10vw;
+        will-change: transform;
+    }
+
+    .scroll-card {
+        flex-shrink: 0;
+        width: 80vw;
+        max-width: 1000px;
+        height: 70vh;
+        min-height: 500px;
+    }
+
+    .card-content {
+        width: 100%;
+        height: 100%;
+        padding: 3rem;
+        transform-origin: center;
+        transition: transform 0.3s ease;
+    }
+
+    .card-content:hover {
+        transform: scale(1.02);
+    }
+
+    .card-content h2 {
+        font-family: 'EB Garamond', serif;
+        line-height: 1.2;
+    }
+
+    .card-content p {
+        font-family: 'Montserrat', sans-serif;
+        line-height: 1.6;
+    }
+
+    .card-content button {
+        background-color: #B78B1E;
+        color: white;
+        border: none;
+        padding: 1rem 3rem;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-content button:hover {
+        background-color: #007078;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 112, 120, 0.4);
+    }
+
+    .card-content button a {
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .scroll-card {
+            width: 90vw;
+            height: 60vh;
+            min-height: 400px;
+        }
+
+        .cards-wrapper {
+            gap: 2rem;
+            padding: 0 5vw;
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .card-content h2 {
+            font-size: 3rem !important;
+        }
+
+        .card-content p {
+            font-size: 1.25rem !important;
+        }
+
+        .card-content button {
+            padding: 0.8rem 2rem;
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .card-content h2 {
+            font-size: 2.5rem !important;
+        }
+
+        .card-content p {
+            font-size: 1rem !important;
+        }
+    }
+</style>
+
+<script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const section = document.querySelector('.horizontal-scroll-section') as HTMLElement;
+    const wrapper = document.querySelector('.cards-wrapper') as HTMLElement;
+    const cards = gsap.utils.toArray('.scroll-card') as HTMLElement[];
+
+    if (section && wrapper && cards.length > 0) {
+        // Calcular el ancho total del scroll horizontal
+        const getScrollAmount = () => {
+            const wrapperWidth = wrapper.scrollWidth;
+            return -(wrapperWidth - window.innerWidth);
+        };
+
+        // Crear el scroll horizontal principal
+        const horizontalScroll = gsap.to(wrapper, {
+            x: getScrollAmount,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: section,
+                start: 'top top',
+                end: () => `+=${wrapper.scrollWidth - window.innerWidth}`,
+                pin: true,
+                scrub: 1,
+                invalidateOnRefresh: true,
+                anticipatePin: 1,
+            }
+        });
+
+        // Animación de escala para cada card individual
+        cards.forEach((card, index) => {
+            const cardContent = card.querySelector('.card-content') as HTMLElement;
+            
+            if (cardContent) {
+                // Animación de entrada desde abajo
+                gsap.from(cardContent, {
+                    scale: 0.8,
+                    opacity: 0,
+                    duration: 1,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: card,
+                        containerAnimation: horizontalScroll,
+                        start: 'left center',
+                        end: 'center center',
+                        scrub: 1,
+                    }
+                });
+
+                // Efecto parallax en el contenido
+                gsap.to(cardContent, {
+                    y: -50,
+                    scrollTrigger: {
+                        trigger: card,
+                        containerAnimation: horizontalScroll,
+                        start: 'left right',
+                        end: 'right left',
+                        scrub: 2,
+                    }
+                });
+            }
+        });
+
+        // Ajustar la altura de la sección para el scroll
+        const setHeight = () => {
+            const scrollWidth = wrapper.scrollWidth - window.innerWidth;
+            section.style.height = `${scrollWidth + window.innerHeight}px`;
+        };
+
+        setHeight();
+
+        // Recalcular en resize
+        let resizeTimeout: ReturnType<typeof setTimeout>;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                setHeight();
+                ScrollTrigger.refresh();
+            }, 250);
+        });
+
+        // Navegación con teclado
+        let currentCard = 0;
+        document.addEventListener('keydown', (e: KeyboardEvent) => {
+            if (e.key === 'ArrowRight' && currentCard < cards.length - 1) {
+                currentCard++;
+                scrollToCard(currentCard);
+            } else if (e.key === 'ArrowLeft' && currentCard > 0) {
+                currentCard--;
+                scrollToCard(currentCard);
+            }
+        });
+
+        function scrollToCard(index: number): void {
+            const cardWidth = cards[0].offsetWidth + 48; // card width + gap
+            const scrollPosition = section.offsetTop + (index * cardWidth * 0.8);
+            
+            gsap.to(window, {
+                scrollTo: scrollPosition,
+                duration: 1,
+                ease: 'power2.inOut'
+            });
+        }
+
+        // Touch/Mouse wheel para navegación más suave
+        let isScrolling = false;
+        
+        section.addEventListener('wheel', (e: WheelEvent) => {
+            if (isScrolling) return;
+            
+            const delta = Math.sign(e.deltaY);
+            
+            if (delta > 0 && currentCard < cards.length - 1) {
+                isScrolling = true;
+                currentCard++;
+                scrollToCard(currentCard);
+                setTimeout(() => { isScrolling = false; }, 1000);
+            } else if (delta < 0 && currentCard > 0) {
+                isScrolling = true;
+                currentCard--;
+                scrollToCard(currentCard);
+                setTimeout(() => { isScrolling = false; }, 1000);
+            }
+        }, { passive: true });
+
+        // Actualizar currentCard basado en la posición del scroll
+        ScrollTrigger.create({
+            trigger: section,
+            start: 'top top',
+            end: 'bottom bottom',
+            onUpdate: (self) => {
+                const progress = self.progress;
+                const newCard = Math.round(progress * (cards.length - 1));
+                if (newCard !== currentCard) {
+                    currentCard = newCard;
+                }
+            }
+        });
+    }
+</script>

@@ -1,0 +1,323 @@
+---
+import Store from '../layouts/Store.astro';
+---
+
+<Store>
+
+    <main class="max-w-[1400px] mx-auto px-[5%] pt-32 pb-12 min-h-screen">
+        <div class="mb-12 text-center">
+            <h1 class="font-serif font-semibold text-5xl text-[#007078] mb-4">Mi Carrito de Compras</h1>
+            <p class="text-[#666666] font-medium text-lg max-w-3xl mx-auto">Revisa los productos que has seleccionado y completa tu compra.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Lista de productos -->
+            <div class="lg:col-span-2 space-y-4" id="carrito-items">
+                <!-- Los productos se añadirán dinámicamente aquí -->
+                <div id="carrito-vacio" class="bg-white rounded-lg shadow-md p-12 text-center">
+                    <svg class="w-24 h-24 mx-auto mb-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    <h2 class="font-serif text-2xl text-[#333333] mb-2">Tu carrito está vacío</h2>
+                    <p class="text-[#666666] mb-6">Agrega productos desde nuestra tienda</p>
+                    <a href="/tienda" class="inline-block px-8 py-3 bg-[#B78B1E] text-white rounded font-semibold tracking-wide uppercase hover:bg-[#007078] transition-all duration-300 hover:shadow-lg">
+                        Ir a la Tienda
+                    </a>
+                </div>
+            </div>
+
+            <!-- Resumen del pedido -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-lg shadow-md p-6 sticky top-24">
+                    <h2 class="font-serif text-2xl font-semibold mb-6 text-[#333333]">Resumen del Pedido</h2>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex justify-between text-[#666666]">
+                            <span>Subtotal:</span>
+                            <span id="subtotal" class="font-semibold">0,00 €</span>
+                        </div>
+                        <div class="flex justify-between text-[#666666]">
+                            <span>Envío:</span>
+                            <span id="envio" class="font-semibold">0,00 €</span>
+                        </div>
+                        <div class="flex justify-between text-[#666666]">
+                            <span>IVA (21%):</span>
+                            <span id="iva" class="font-semibold">0,00 €</span>
+                        </div>
+                        <hr class="border-gray-200">
+                        <div class="flex justify-between text-xl font-bold text-[#007078]">
+                            <span>Total:</span>
+                            <span id="total">0,00 €</span>
+                        </div>
+                    </div>
+
+                    <button 
+                        id="btn-finalizar"
+                        class="w-full py-3 bg-[#B78B1E] text-white rounded font-semibold tracking-wide uppercase hover:bg-[#007078] transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed mb-3"
+                        disabled>
+                        Finalizar Compra
+                    </button>
+
+                    <a href="/tienda" class="block text-center text-[#007078] font-medium hover:text-[#B78B1E] transition-colors">
+                        Seguir Comprando
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Script de funcionalidad del carrito -->
+    <script is:inline>
+        // Datos de ejemplo de productos (en producción vendrían de una API o localStorage)
+        const productosDisponibles = [
+            { id: 1, nombre: 'Set Travelis', precio: 599.85, categoria: 'Set Completo', imagen: '🧳' },
+            { id: 2, nombre: 'Set Luxuria', precio: 899.85, categoria: 'Set Completo', imagen: '💼' },
+            { id: 3, nombre: 'Set SureLux', precio: 999.85, categoria: 'Set Completo', imagen: '✨' },
+            { id: 4, nombre: 'Maleta Travelis', precio: 199.85, categoria: 'Maleta', imagen: '🧳' },
+            { id: 5, nombre: 'Maleta Luxuria', precio: 299.85, categoria: 'Maleta', imagen: '💼' },
+            { id: 6, nombre: 'Maleta SureLux', precio: 599.85, categoria: 'Maleta', imagen: '✨' },
+            { id: 7, nombre: 'Maletín Travelis', precio: 79.85, categoria: 'Maletín', imagen: '👜' },
+            { id: 8, nombre: 'Maletín Luxuria', precio: 95.99, categoria: 'Maletín', imagen: '💼' },
+            { id: 9, nombre: 'Maletín SureLux', precio: 249.85, categoria: 'Maletín', imagen: '✨' }
+        ];
+
+        // Obtener carrito del localStorage (compatible con StoreContainer.jsx)
+        function obtenerCarrito() {
+            const carritoStr = localStorage.getItem('carritoAventis');
+            if (!carritoStr) return {};
+            try {
+                return JSON.parse(carritoStr);
+            } catch (e) {
+                console.error('Error al parsear carrito:', e);
+                return {};
+            }
+        }
+
+        // Guardar carrito en localStorage
+        function guardarCarrito(carrito) {
+            localStorage.setItem('carritoAventis', JSON.stringify(carrito));
+            // Disparar evento para actualizar otros componentes
+            window.dispatchEvent(new CustomEvent('cartUpdated', { detail: carrito }));
+        }
+
+        // Formatear precio
+        function formatearPrecio(precio) {
+            return new Intl.NumberFormat('es-ES', { 
+                style: 'currency', 
+                currency: 'EUR' 
+            }).format(precio);
+        }
+
+        // Renderizar productos del carrito
+        function renderizarCarrito() {
+            const carrito = obtenerCarrito();
+            const contenedor = document.getElementById('carrito-items');
+            const carritoVacio = document.getElementById('carrito-vacio');
+
+            const productos = Object.values(carrito);
+
+            if (productos.length === 0) {
+                carritoVacio.style.display = 'block';
+                contenedor.innerHTML = '';
+                actualizarResumen();
+                return;
+            }
+
+            carritoVacio.style.display = 'none';
+            
+            contenedor.innerHTML = productos.map(item => {
+                return `
+                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row gap-6 items-center transition-all duration-300 hover:shadow-lg">
+                        <div class="w-24 h-24 bg-gradient-to-br from-teal-500 to-teal-700 rounded-lg flex items-center justify-center text-4xl flex-shrink-0">
+                            🧳
+                        </div>
+                        
+                        <div class="grow text-center md:text-left">
+                            <h3 class="font-serif text-xl font-semibold text-[#333333] mb-1">${item.nombre}</h3>
+                            <p class="text-2xl font-bold text-[#B78B1E]">${formatearPrecio(item.precio)}</p>
+                        </div>
+
+                        <div class="flex items-center gap-4 flex-shrink-0">
+                            <button onclick="actualizarCantidad('${item.id}', -1)" class="w-8 h-8 bg-red-500 hover:bg-red-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                                −
+                            </button>
+                            <span class="text-lg font-semibold min-w-[2rem] text-center">${item.cantidad}</span>
+                            <button onclick="actualizarCantidad('${item.id}', 1)" class="w-8 h-8 bg-green-500 hover:bg-green-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                                +
+                            </button>
+                        </div>
+
+                        <button onclick="eliminarProducto('${item.id}')" class="text-red-500 hover:text-red-700 transition-colors p-2" title="Eliminar producto">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                `;
+            }).join('');
+
+            actualizarResumen();
+        }
+
+        // Actualizar cantidad de producto
+        window.actualizarCantidad = function(id, cambio) {
+            const carrito = obtenerCarrito();
+            const item = carrito[id];
+            
+            if (item) {
+                item.cantidad += cambio;
+                
+                if (item.cantidad <= 0) {
+                    eliminarProducto(id);
+                    return;
+                }
+                
+                guardarCarrito(carrito);
+                renderizarCarrito();
+            }
+        };
+
+        // Eliminar producto del carrito
+        window.eliminarProducto = function(id) {
+            const carrito = obtenerCarrito();
+            delete carrito[id];
+            guardarCarrito(carrito);
+            renderizarCarrito();
+        };
+
+        // Actualizar resumen del pedido
+        function actualizarResumen() {
+            const carrito = obtenerCarrito();
+            const productos = Object.values(carrito);
+            
+            let subtotal = 0;
+            productos.forEach(item => {
+                subtotal += item.precio * item.cantidad;
+            });
+
+            const envio = subtotal > 0 ? (subtotal > 300 ? 0 : 15) : 0;
+            const iva = subtotal * 0.21;
+            const total = subtotal + envio + iva;
+
+            document.getElementById('subtotal').textContent = formatearPrecio(subtotal);
+            document.getElementById('envio').textContent = formatearPrecio(envio);
+            document.getElementById('iva').textContent = formatearPrecio(iva);
+            document.getElementById('total').textContent = formatearPrecio(total);
+
+            const btnFinalizar = document.getElementById('btn-finalizar');
+            if (productos.length > 0) {
+                btnFinalizar.disabled = false;
+            } else {
+                btnFinalizar.disabled = true;
+            }
+        }
+
+        // Finalizar compra
+        document.getElementById('btn-finalizar')?.addEventListener('click', () => {
+            const carrito = obtenerCarrito();
+            if (carrito.length === 0) return;
+
+            const productos = Object.values(carrito);
+            if (productos.length === 0) return;
+
+                alert('¡Gracias por tu compra! Esta es una demostración. En producción, aquí se procesaría el pago.');
+                
+                // Limpiar carrito
+                localStorage.removeItem('carritoAventis');
+                window.dispatchEvent(new CustomEvent('cartUpdated', { detail: {} }));
+                renderizarCarrito();
+            });
+
+        // Menú hamburguesa
+        window.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const body = document.querySelector('body');
+
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    
+                    if (navMenu.classList.contains('h-0')) {
+                        navMenu.classList.remove('h-0');
+                        navMenu.classList.add('h-screen');
+                        const navItems = navMenu.querySelectorAll('li');
+                        navItems.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.classList.remove('opacity-0', '-translate-x-5');
+                            }, index * 100);
+                        });
+                    } else {
+                        navMenu.classList.add('h-0');
+                        navMenu.classList.remove('h-screen');
+                        const navItems = navMenu.querySelectorAll('li');
+                        navItems.forEach(item => {
+                            item.classList.add('opacity-0', '-translate-x-5');
+                        });
+                    }
+
+                    if (body) {
+                        body.style.overflow = navMenu.classList.contains('h-screen') ? 'hidden' : 'auto';
+                    }
+                });
+
+                // Cierra el menú al hacer clic en un enlace
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.add('h-0');
+                        navMenu.classList.remove('h-screen');
+                        if (body) body.style.overflow = 'auto';
+                    });
+                });
+
+                // Animación del botón hamburguesa
+                const style = document.createElement('style');
+                style.textContent = `
+                    .hamburger.active .bar:nth-child(1) {
+                        transform: translateY(8px) rotate(45deg);
+                    }
+                    .hamburger.active .bar:nth-child(2) {
+                        opacity: 0;
+                    }
+                    .hamburger.active .bar:nth-child(3) {
+                        transform: translateY(-8px) rotate(-45deg);
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            // Renderizar carrito al cargar la página
+            renderizarCarrito();
+
+            // Actualizar cuando cambie el carrito desde otra página
+            window.addEventListener('cartUpdated', () => {
+                renderizarCarrito();
+            });
+        });
+    </script>
+</Store>
+
+<style>
+    @keyframes fadeInNav {
+        from {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    .animation-fadeInNav {
+        animation: fadeInNav 0.5s ease-out forwards;
+    }
+    
+    .animation-delay-100 { animation-delay: 0.1s; }
+    .animation-delay-200 { animation-delay: 0.2s; }
+    .animation-delay-300 { animation-delay: 0.3s; }
+    .animation-delay-400 { animation-delay: 0.4s; }
+    .animation-delay-500 { animation-delay: 0.5s; }
+    .animation-delay-600 { animation-delay: 0.6s; }
+</style>

@@ -1,0 +1,102 @@
+---
+// llamarlo en el layout o agregar directamente después de la etiqueta "<body>" src/components/CustomCursor.astro
+---
+
+<div id="cursor">
+    <img src="/astrofavicon.svg" alt="Custom Cursor" />
+</div>
+
+<style>
+    #cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 25px;
+        height:auto;
+        z-index: 9999;
+        pointer-events: none; /* Para permitir hacer clic a través de la imagen */
+        transform: translate(-50%, -50%); /* Para centrar la imagen en la punta del mouse */
+        transition: transform 0.55s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.5s ease; /* Importante: Transición para que se sienta "flotante" y suave */
+        
+        opacity: 0; /* Inicialmente oculto hasta que se mueva el mouse para evitar parpadeos */
+    }
+
+    /* Clase para mostrar el cursor cuando el mouse se mueve */
+    #cursor.visible {
+        opacity: 1;
+    }
+    /* 1. Nuevo estilo para ocultar el cursor personalizado */
+    #cursor.hidden {
+        opacity: 0 !important; /* Asegura que se oculte, incluso si tiene la clase .visible */
+    }
+
+    /* Mostrar cursor nativo en enlaces para mejor UX (Opcional) */
+    :global(a), :global(button) {
+        cursor: pointer;
+    }
+
+    /* Opcional: Ocultar el cursor nativo del sistema, no es recomendable al usar el elemento transition
+        :global(body) {
+        cursor: none;
+    } 
+    es recomendable cuando creamos una imagen de cursor personalizada para reemplazarlo*/
+    
+</style>
+
+<script>
+    const cursor = document.getElementById('cursor');
+    let timeoutId: ReturnType<typeof setTimeout> | undefined = undefined;
+    const DELAY_MS = 1000;
+
+    if (cursor) {
+        const hideCursor = () => {
+            cursor.classList.remove('visible');
+        };
+
+        const moveCursor = (e: MouseEvent) => {
+            // 1. Mostrar el cursor y limpiar el temporizador anterior
+            cursor.classList.add('visible');
+            if (timeoutId !== undefined) {
+                clearTimeout(timeoutId);
+            }
+
+            const x = e.clientX;
+            const y = e.clientY;
+
+            // 2. Actualizar la posición
+            cursor.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+
+            // 3. Establecer un nuevo temporizador
+            timeoutId = setTimeout(hideCursor, DELAY_MS);
+        };
+
+        // Activamos el evento en toda la ventana
+        window.addEventListener('mousemove', moveCursor);
+
+        // Ocultar el cursor si sale de la ventana (opcional)
+        window.addEventListener('mouseleave', hideCursor);
+
+        // --- 2. Lógica para ocultar/mostrar en enlaces y botones ---
+
+        // Función para agregar la clase de ocultar
+        const addHiddenClass = () => {
+            cursor.classList.add('hidden');
+        };
+
+        // Función para remover la clase de ocultar
+        const removeHiddenClass = () => {
+            cursor.classList.remove('hidden');
+        };
+        
+        // Seleccionamos todos los enlaces, botones, formularios y elementos interactivos
+        const interactiveElements = document.querySelectorAll('a, button, input, textarea, select');
+
+        // Agregamos listeners a cada elemento
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', addHiddenClass);
+            element.addEventListener('mouseleave', removeHiddenClass);
+        });
+        
+    }
+</script>
+</script>

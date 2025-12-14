@@ -1,0 +1,260 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// Datos de ejemplo para los posts del blog
+const posts = [
+    {
+        id: 1,
+        titulo: 'Descubre los Pirineos en Primavera',
+        subtitulo: 'Una aventura entre montañas y valles verdes',
+        imagen: '/newsletter-pirineos.jpg',
+        categoria: 'Viajes',
+        fecha: '15 de Noviembre, 2024',
+        descripcion: 'Explora los paisajes más impresionantes de los Pirineos durante la primavera, cuando la naturaleza despierta con todo su esplendor.',
+        autor: 'María González'
+    },
+    {
+        id: 2,
+        titulo: 'Guía Completa para Viajar a Japón',
+        subtitulo: 'Todo lo que necesitas saber antes de tu viaje',
+        imagen: '/newsletter-pirineos.jpg',
+        categoria: 'Tendencias',
+        fecha: '10 de Noviembre, 2024',
+        descripcion: 'Desde la mejor época para visitar hasta consejos culturales esenciales para aprovechar al máximo tu experiencia en Japón.',
+        autor: 'Carlos Martínez'
+    },
+    {
+        id: 3,
+        titulo: 'Los Mejores Destinos de Playa en 2024',
+        subtitulo: 'Paraísos tropicales que no te puedes perder',
+        imagen: '/newsletter-pirineos.jpg',
+        categoria: 'Viajes',
+        fecha: '5 de Noviembre, 2024',
+        descripcion: 'Descubre las playas más espectaculares del mundo, desde aguas cristalinas hasta arenas blancas que te dejarán sin aliento.',
+        autor: 'Laura Sánchez'
+    },
+    {
+        id: 4,
+        titulo: 'Eventos de Aventura 2024',
+        subtitulo: 'Experiencias extremas alrededor del mundo',
+        imagen: '/newsletter-pirineos.jpg',
+        categoria: 'Eventos',
+        fecha: '1 de Noviembre, 2024',
+        descripcion: 'Una selección de los eventos más emocionantes para los amantes de la aventura y los deportes extremos.',
+        autor: 'Javier Ruiz'
+    },
+    {
+        id: 5,
+        titulo: 'Viajes Sostenibles: El Futuro del Turismo',
+        subtitulo: 'Cómo viajar respetando el medio ambiente',
+        imagen: '/newsletter-pirineos.jpg',
+        categoria: 'Tendencias',
+        fecha: '28 de Octubre, 2024',
+        descripcion: 'Aprende cómo hacer que tus viajes sean más sostenibles y responsables con el planeta sin renunciar a la aventura.',
+        autor: 'Ana Torres'
+    },
+    {
+        id: 6,
+        titulo: 'Nosotros: Nuestra Historia',
+        subtitulo: 'Conoce quiénes somos y qué nos inspira',
+        imagen: '/newsletter-pirineos.jpg',
+        categoria: 'Nosotros',
+        fecha: '20 de Octubre, 2024',
+        descripcion: 'Descubre la historia detrás de Aventis y nuestra pasión por crear experiencias de viaje inolvidables.',
+        autor: 'Equipo Aventis'
+    }
+];
+
+const categorias = ['Todos', 'Nosotros', 'Viajes', 'Eventos', 'Tendencias'];
+---
+
+<Layout>
+    <!-- Hero Section -->
+    <div class="mb-16">
+        <h1 class="font-['EB_Garamond'] text-5xl md:text-6xl font-semibold text-[#007078] mb-4 leading-tight">
+            Bitácora de Viajes
+        </h1>
+        <p class="font-['Montserrat'] text-lg text-[#666666] font-medium max-w-3xl">
+            Explora historias inspiradoras, destinos fascinantes y consejos de expertos para tu próxima aventura.
+        </p>
+    </div>
+
+    <!-- Filtros de Categorías -->
+    <div class="mb-12 border-b-2 border-[#E9E4E3]">
+        <ul class="flex flex-wrap gap-2 md:gap-6 pb-4" id="categorias-filter">
+            {categorias.map((categoria, index) => (
+                <li>
+                    <button 
+                        class={`categoria-btn font-['Montserrat'] font-semibold text-base px-6 py-2 rounded-md transition-all duration-300 ${
+                            index === 0 
+                                ? 'bg-[#B78B1E] text-white shadow-md' 
+                                : 'text-[#666666] hover:text-[#007078] hover:bg-[#E9E4E3]'
+                        }`}
+                        data-categoria={categoria}
+                    >
+                        {categoria}
+                    </button>
+                </li>
+            ))}
+        </ul>
+    </div>
+
+    <!-- Grid de Posts -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16" id="posts-grid">
+        {posts.map((post) => (
+            <article 
+                class="post-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group"
+                data-categoria={post.categoria}
+            >
+                <!-- Imagen -->
+                <div class="relative overflow-hidden h-64">
+                    <img 
+                        src={post.imagen} 
+                        alt={post.titulo}
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div class="absolute top-4 left-4">
+                        <span class="bg-[#B78B1E] text-white font-['Montserrat'] font-semibold text-xs px-4 py-2 rounded-full uppercase tracking-wider shadow-md">
+                            {post.categoria}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Contenido -->
+                <div class="p-6">
+                    <!-- Fecha y Autor -->
+                    <div class="flex items-center gap-4 text-sm text-[#666666] font-['Montserrat'] font-medium mb-3">
+                        <span class="flex items-center gap-1">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                            </svg>
+                            {post.fecha}
+                        </span>
+                    </div>
+
+                    <!-- Título -->
+                    <h2 class="font-['EB_Garamond'] text-2xl font-semibold text-[#007078] mb-2 group-hover:text-[#B78B1E] transition-colors duration-300">
+                        {post.titulo}
+                    </h2>
+
+                    <!-- Subtítulo -->
+                    <h3 class="font-['EB_Garamond'] text-lg text-[#333333] mb-3 font-normal">
+                        {post.subtitulo}
+                    </h3>
+
+                    <!-- Descripción -->
+                    <p class="font-['Montserrat'] text-[#666666] font-medium mb-4 line-clamp-3 leading-relaxed">
+                        {post.descripcion}
+                    </p>
+
+                    <!-- Autor y Leer más -->
+                    <div class="flex items-center justify-between pt-4 border-t border-[#E9E4E3]">
+                        <span class="text-sm text-[#666666] font-['Montserrat'] font-medium">
+                            Por {post.autor}
+                        </span>
+                        <a 
+                            href={`/blog/${post.id}`}
+                            class="text-[#B78B1E] hover:text-[#007078] font-['Montserrat'] font-semibold text-sm uppercase tracking-wider transition-colors duration-300 flex items-center gap-1"
+                        >
+                            Leer más
+                            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+        ))}
+    </div>
+
+    <!-- Newsletter Section -->
+    <article class="mb-16">
+        <div class="relative h-96 px-12 py-16 bg-[url(/newsletter-pirineos.jpg)] bg-cover bg-center flex flex-col justify-center items-center text-center text-white overflow-hidden rounded-lg shadow-2xl before:content-[''] before:absolute before:inset-0 before:bg-black/50 before:z-0">
+            <h2 class="relative z-10 font-['EB_Garamond'] text-5xl font-bold tracking-wide mb-4 drop-shadow-lg">
+                Suscríbete a nuestra newsletter
+            </h2>
+            <p class="relative z-10 font-['Montserrat'] text-xl font-semibold tracking-wide mb-8 max-w-2xl drop-shadow-md">
+                Regístrate con tu correo electrónico y recibe actualizaciones y noticias directamente en tu bandeja de entrada.
+            </p>
+            <form class="relative z-10 w-full max-w-2xl">
+                <div class="flex flex-col md:flex-row gap-4 mb-4">
+                    <input 
+                        type="email" 
+                        placeholder="Tu correo electrónico" 
+                        class="flex-1 px-6 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B78B1E] font-['Montserrat'] text-gray-800"
+                        required
+                    />
+                    <button 
+                        type="submit" 
+                        class="bg-[#B78B1E] hover:bg-[#007078] text-white font-['Montserrat'] font-semibold px-8 py-3 rounded-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg uppercase tracking-wider"
+                    >
+                        Suscribirse
+                    </button>
+                </div>
+                <div class="flex items-start gap-3 text-left">
+                    <input 
+                        type="checkbox" 
+                        id="terminos" 
+                        name="terminos" 
+                        class="w-5 h-5 mt-1 accent-[#B78B1E] cursor-pointer flex-shrink-0"
+                        required
+                    />
+                    <label 
+                        for="terminos" 
+                        class="font-['Montserrat'] text-sm font-normal leading-relaxed cursor-pointer"
+                    >
+                        He leído y acepto la información básica sobre protección de datos así como el aviso legal, la política de privacidad y acepto el tratamiento de mis datos para realizar la solicitud realizada.
+                    </label>
+                </div>
+            </form>
+        </div>
+    </article>
+
+    <!-- Script para filtros interactivos -->
+    <script is:inline>
+        document.addEventListener('DOMContentLoaded', () => {
+            const categoriaBtns = document.querySelectorAll('.categoria-btn');
+            const postCards = document.querySelectorAll('.post-card');
+
+            categoriaBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const categoriaSeleccionada = btn.getAttribute('data-categoria');
+
+                    // Actualizar estilos de botones
+                    categoriaBtns.forEach(b => {
+                        b.classList.remove('bg-[#B78B1E]', 'text-white', 'shadow-md');
+                        b.classList.add('text-[#666666]', 'hover:text-[#007078]', 'hover:bg-[#E9E4E3]');
+                    });
+                    btn.classList.add('bg-[#B78B1E]', 'text-white', 'shadow-md');
+                    btn.classList.remove('text-[#666666]', 'hover:text-[#007078]', 'hover:bg-[#E9E4E3]');
+
+                    // Filtrar posts con animación
+                    postCards.forEach(card => {
+                        const cardCategoria = card.getAttribute('data-categoria');
+                        
+                        if (categoriaSeleccionada === 'Todos' || cardCategoria === categoriaSeleccionada) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Inicializar opacidad y transición
+            postCards.forEach(card => {
+                card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            });
+        });
+    </script>
+</Layout>
+
+

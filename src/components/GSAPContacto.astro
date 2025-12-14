@@ -1,0 +1,53 @@
+---
+// Asegúrate de importar y registrar GSAP en algún lugar si no lo haces en el script de abajo
+// Si usas un script type="module", la importación dentro del script es suficiente.
+---
+<article class="flex justify-center w-full">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
+        <div class="contenido-articulo transition duration-300 ease-in-out hover:translate-y-[-5px] text-center">
+            <img src="/icon-direccion.svg" alt="adress icon" class="w-20! h-auto! block! mx-auto! pb-6!">
+            <h2>Dirección</h2>
+            <p class="mb-0!">Plaza de Europa 1</p>
+            <p>50003 Zaraoza</p>
+        </div>
+        <div class="contenido-articulo transition duration-300 ease-in-out hover:translate-y-[-5px] text-center">
+            <img src="/icon-house.svg" alt="hora icon" class="w-20! h-auto! block! mx-auto! pb-6!">
+            <h2>Horario</h2>
+            <p class="mb-0!">Lunes a Viernes</p>
+            <p class="mb-0!">10:00 - 14:00</p>
+            <p>17:00 - 20:00</p>
+        </div>
+        <div class="contenido-articulo transition duration-300 ease-in-out hover:translate-y-[-5px] text-center">
+            <img src="/phone-neg.svg" alt="phone icon" class="w-20! h-auto! block! mx-auto! pb-6!">
+            <h2>Teléfono</h2>
+            <p class="mb-0!">+34 123 321 000</p>
+            <p class="mb-0!">+34 123 321 456</p>
+        </div>
+        <div class="contenido-articulo transition duration-300 ease-in-out hover:translate-y-[-5px] text-center">
+            <img src="/icon-email.svg" alt="email icon" class="w-20! h-auto! block! mx-auto! pb-6!">
+            <h2>E-mail</h2>
+            <p class="mb-0!">info@aventis.es</p>
+            <p>reservas@aventis.es</p>
+        </div>
+    </div>
+</article>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".grid", {
+        x: -100,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        scrollTrigger: {
+            trigger: ".grid",
+            start: "top 80%",
+            toggleActions: "play none none none",
+            markers: false,
+        }
+    });
+</script>

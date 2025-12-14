@@ -1,0 +1,143 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const metadata = {
+    categoria: 'Nosotros',
+    fecha: '4 de Diciembre, 2025',
+    autor: 'John Vicent'
+};
+---
+
+<Layout>
+    <main class="max-w-5xl mx-auto">
+        <article class="bg-white rounded-lg overflow-hidden shadow-lg mb-16">
+            <!-- Hero Image -->
+            <div class="relative h-96 bg-[url(/carrusel-camino.jpg)] bg-cover bg-center flex flex-col justify-center items-center text-center text-white overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-black/50 before:z-0">
+                <div class="relative z-10 px-6 md:px-12">
+                    <h1 class="font-['EB_Garamond'] text-5xl md:text-7xl font-bold tracking-wide mb-4 drop-shadow-lg">
+                        Agencia Aventis
+                    </h1>
+                    <h2 class="font-['EB_Garamond'] text-2xl md:text-3xl font-semibold tracking-wide drop-shadow-md">
+                        Experiencias Inolvidables en Nuestra Península Ibérica
+                    </h2>
+                </div>
+            </div>
+
+            <!-- Metadata Section -->
+            <div class="px-6 md:px-12 py-6 bg-gradient-to-r from-[#007078] to-[#005a61] text-white">
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <div class="flex items-center gap-6">
+                        <span class="bg-[#B78B1E] font-['Montserrat'] font-semibold text-xs px-4 py-2 rounded-full uppercase tracking-wider shadow-md">
+                            {metadata.categoria}
+                        </span>
+                        <span class="font-['Montserrat'] font-medium flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                            </svg>
+                            {metadata.fecha}
+                        </span>
+                    </div>
+                    <span class="font-['Montserrat'] font-medium">
+                        Por <strong>{metadata.autor}</strong>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Article Content -->
+            <div class="px-6 md:px-12 py-10">
+                <p class="font-['Montserrat'] text-lg text-[#666666] font-medium mb-6 leading-relaxed">
+                    En el mundo de los viajes, donde la exclusividad y la personalización son cada vez más valoradas, Aventis
+                    se erige como un faro de distinción.
+                    Esta agencia de viajes de lujo,
+                    especializada en España, no se limita
+                    a organizar itinerarios; crea experiencias
+                    a medida que superan las expectativas
+                    de los viajeros más exigentes.
+                </p>
+                
+                <p class="font-['Montserrat'] text-lg text-[#666666] font-medium mb-6 leading-relaxed">
+                    Aventis entiende que el lujo
+                    no se mide solo en términos de opulencia,
+                    sino también en la capacidad de crear
+                    momentos únicos y significativos.
+                    Su equipo de expertos, con un profundo
+                    conocimiento de España, se dedica
+                    a diseñar viajes que reflejen los intereses
+                    y deseos de cada cliente. Desde
+                    la selección de alojamientos exclusivos
+                    hasta la organización de actividades
+                    personalizadas, cada detalle
+                    se cuida con esmero para garantizar
+                    una experiencia inolvidable.
+                </p>
+                
+                <p class="font-['Montserrat'] text-lg text-[#666666] font-medium mb-8 leading-relaxed">
+                    España,
+                    con su rica historia, cultura vibrante
+                    y paisajes diversos, es un destino
+                    que cautiva a los viajeros de todo
+                    el mundo. Aventis aprovecha al máximo
+                    esta riqueza, ofreciendo itinerarios
+                    que exploran tanto los lugares
+                    emblemáticos como los rincones
+                    ocultos del país. Si buscas un viaje
+                    que vaya más allá de lo convencional,
+                    Aventis es tu agencia. Con su enfoque
+                    personalizado, su conocimiento experto
+                    de España y su pasión por crear
+                    experiencias inolvidables, Aventis
+                    te abrirá las puertas a un mundo de lujo.
+                </p>
+                
+                <img 
+                    src="/yate-marina.jpg" 
+                    alt="Yate en la marina" 
+                    class="w-full rounded-lg shadow-xl my-8 hover:shadow-2xl transition-shadow duration-300"
+                />
+                
+                <p class="font-['Montserrat'] text-lg text-[#666666] font-medium mb-6 leading-relaxed">
+                    España se distingue como un destino de lujo diverso
+                    y atractivo para viajeros exigentes. Ciudades
+                    costeras como Marbella, con su glamour
+                    y exclusividad, e islas como Mallorca e Ibiza,
+                    que combinan belleza natural con sofisticación
+                    y vida nocturna de alto nivel, son puntos clave.
+                    Barcelona, con su arquitectura modernista
+                    y ambiente cosmopolita, y Madrid, con su riqueza
+                    cultural y oferta de compras y gastronomía
+                    de primer nivel, también figuran entre los destinos
+                    preferidos.
+                </p>
+                
+                <p class="font-['Montserrat'] text-lg text-[#666666] font-medium mb-6 leading-relaxed">
+                    Además de estos centros urbanos y costeros,
+                    España ofrece experiencias de lujo en ciudades
+                    con encanto particular como San Sebastián,
+                    renombrada por su alta cocina y elegancia, Bilbao,
+                    con su vanguardista arquitectura y gastronomía
+                    innovadora, y Sevilla, que deslumbra con su historia
+                    y tradición andaluza. Esta variedad de destinos
+                    asegura que los viajeros de lujo encuentren
+                    en España experiencias personalizadas y de alta
+                    calidad, ya sea disfrutando de playas exclusivas,
+                    explorando patrimonio cultural o deleitándose
+                    con la gastronomía de autor. En Aventis los beneficios pueden marcar una gran
+                    diferencia en la calidad y el disfrute de tu viaje.
+                </p>
+
+                <!-- Back to Blog Button -->
+                <div class="mt-12! pt-8! border-t border-[#E9E4E3]">
+                    <a 
+                        href="/blog"
+                        class="inline-flex items-center gap-2 bg-[#B78B1E] hover:bg-[#007078] text-white! font-['Montserrat'] font-semibold px-8! py-3! rounded-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg uppercase tracking-wider"
+                    >
+                        <svg class="w-5! h-5! rotate-180!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                        Volver al Blog
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+</Layout>

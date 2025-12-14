@@ -1,0 +1,428 @@
+---
+import Store from '../layouts/Store.astro';
+import StoreContainer from '../components/StoreContainer.jsx';
+---
+
+<Store>
+
+    <main class="max-w-[1400px] mx-auto! px-[5%] pt-32 pb-12">
+
+        <article>
+            <div class="mb-16! text-center!">
+                <h1 class="hidden">Tienda Aventis</h1>
+                <img src="/logotipo-color.png" alt="Logotipo Aventis Color" class="w-120! mx-auto! pt-9! pb-6! block! img-shadow-lg!">
+                <h2 class="text-4xl!">Descubre Nuestros Accesorios Exclusivos</h2>
+                <p class="">Descubre nuestra selección exclusiva de maletas y accesorios de viaje premium. Calidad, estilo y funcionalidad para tus aventuras.</p>
+            </div>
+        </article>
+        
+        <!-- Filtros -->
+        <div class="flex flex-wrap gap-4 justify-center mb-12!">
+            <button data-filtro="todos" class="btn-filtro px-6 py-3 rounded-full bg-white border-2 border-[#007078] text-[#007078] hover:bg-[#007078] hover:text-white transition-all duration-300 font-semibold tracking-wide shadow-md hover:shadow-lg active">
+                Todos los Productos
+            </button> 
+            <button data-filtro="sets" class="btn-filtro px-6 py-3 rounded-full bg-white border-2 border-gray-300 hover:border-[#B78B1E] hover:bg-[#B78B1E] hover:text-white transition-all duration-300 font-semibold text-gray-700 tracking-wide shadow-md">
+                Sets
+            </button>
+            <button data-filtro="maletas" class="btn-filtro px-6 py-3 rounded-full bg-white border-2 border-gray-300 hover:border-[#B78B1E] hover:bg-[#B78B1E] hover:text-white transition-all duration-300 font-semibold text-gray-700 tracking-wide shadow-md">
+                Maletas
+            </button>
+            <button data-filtro="maletines" class="btn-filtro px-6 py-3 rounded-full bg-white border-2 border-gray-300 hover:border-[#B78B1E] hover:bg-[#B78B1E] hover:text-white transition-all duration-300 font-semibold text-gray-700 tracking-wide shadow-md">
+                Maletines
+            </button>
+        </div>
+
+        <!-- Grid de Productos -->
+        <div id="productos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Set Travelis -->
+            <div class="producto-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col" data-categoria="sets" data-producto-id="set-travelis">
+                <div class="h-64 bg-[url(/maletas-set-1.jpg)] bg-cover bg-center bg-linear-to-br from-teal-600 to-teal-800 flex items-center justify-center">
+                    <span class="hidden">Set Maletas</span>
+                </div>
+                <div class="p-6! flex flex-col grow">
+                    <span class="inline-block px-3! py-1! text-xs bg-[#007078] text-white rounded-full mb-3! self-start font-semibold! tracking-wide">SET COMPLETO</span>
+                    <h3 class="font-serif text-3xl! font-bold! mb-2! text-[#333333]!">Set Travelis</h3>
+                    <p class="text-[#666666] mb-4 text-sm grow">Tres maletas de diseño elegante y funcional para todas tus aventuras.</p>
+                    <div class="flex items-baseline justify-between mb-4!">
+                        <span class="text-2xl font-bold text-[#B78B1E]">599,85 €</span>
+                    </div>
+                    <button 
+                        class="btn-add-cart w-full py-3! bg-[#B78B1E] text-white rounded font-semibold tracking-wide uppercase hover:bg-[#007078] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg mb-3"
+                        onclick="addProductToCart('set-travelis', 'Set Travelis', 599.85);">
+                        Añadir al Carrito
+                    </button>
+                    <div class="flex items-center justify-between gap-2 bg-gray-100 rounded px-4 py-2">
+                        <button onclick="removeProductFromCart('set-travelis');" class="w-8 h-8 bg-red-500 hover:bg-red-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            −
+                        </button>
+                        <span class="product-quantity font-bold text-gray-700 text-lg">0</span>
+                        <button onclick="addProductToCart('set-travelis', 'Set Travelis', 599.85);" class="w-8 h-8 bg-green-500 hover:bg-green-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Set Luxuria -->
+            <div class="producto-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col" data-categoria="sets" data-producto-id="set-luxuria">
+                <div class="h-64 bg-[url(/maletas-set-2.jpg)] bg-cover bg-center bg-linear-to-br from-purple-600 to-purple-800 flex items-center justify-center">
+                    <span class="hidden">Set Luxuria</span>
+                </div>
+                <div class="p-6! flex flex-col grow">
+                    <span class="inline-block px-3! py-1! text-xs bg-[#007078] text-white rounded-full mb-3! self-start font-semibold tracking-wide">SET COMPLETO</span>
+                    <h3 class="font-serif text-3xl! font-bold! mb-2! text-[#333333]">Set Luxuria</h3>
+                    <p class="text-[#666666] mb-4 text-sm grow">Set premium con acabados de lujo y máxima durabilidad.</p>
+                    <div class="flex items-baseline justify-between mb-4!">
+                        <span class="text-2xl font-bold text-[#B78B1E]">899,85 €</span>
+                    </div>
+                    <button 
+                        class="btn-add-cart w-full py-3! bg-[#B78B1E] text-white rounded font-semibold tracking-wide uppercase hover:bg-[#007078] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg mb-3"
+                        onclick="addProductToCart('set-luxuria', 'Set Luxuria', 899.85);">
+                        Añadir al Carrito
+                    </button>
+                    <div class="flex items-center justify-between gap-2 bg-gray-100 rounded px-4 py-2">
+                        <button onclick="removeProductFromCart('set-luxuria');" class="w-8 h-8 bg-red-500 hover:bg-red-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            −
+                        </button>
+                        <span class="product-quantity font-bold text-gray-700 text-lg">0</span>
+                        <button onclick="addProductToCart('set-luxuria', 'Set Luxuria', 899.85);" class="w-8 h-8 bg-green-500 hover:bg-green-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Set SureLux -->
+            <div class="producto-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col" data-categoria="sets" data-producto-id="set-surelux">
+                <div class="h-64 bg-[url(/maletas-set-3.jpg)] bg-cover bg-center bg-linear-to-br from-amber-600 to-amber-800 flex items-center justify-center">
+                    <span class="hidden">Set SureLux</span>
+                </div>
+                <div class="p-6! flex flex-col grow">
+                    <span class="inline-block px-3! py-1! text-xs bg-[#007078] text-white rounded-full mb-3! self-start font-semibold tracking-wide">SET COMPLETO</span>
+                    <h3 class="font-serif text-3xl! font-bold! mb-2! text-[#333333]">Set SureLux</h3>
+                    <p class="text-[#666666] mb-4 text-sm grow">La excelencia en equipaje de viaje. Diseño exclusivo y materiales superiores.</p>
+                    <div class="flex items-baseline justify-between mb-4!">
+                        <span class="text-2xl! font-bold text-[#B78B1E]">999,85 €</span>
+                    </div>
+                    <button 
+                        class="btn-add-cart w-full py-3! bg-[#B78B1E] text-white rounded font-semibold tracking-wide uppercase hover:bg-[#007078] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg mb-3"
+                        onclick="addProductToCart('set-surelux', 'Set SureLux', 999.85);">
+                        Añadir al Carrito
+                    </button>
+                    <div class="flex items-center justify-between gap-2 bg-gray-100 rounded px-4 py-2">
+                        <button onclick="removeProductFromCart('set-surelux');" class="w-8 h-8 bg-red-500 hover:bg-red-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            −
+                        </button>
+                        <span class="product-quantity font-bold text-gray-700 text-lg">0</span>
+                        <button onclick="addProductToCart('set-surelux', 'Set SureLux', 999.85);" class="w-8 h-8 bg-green-500 hover:bg-green-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maleta Travelis -->
+            <div class="producto-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col" data-categoria="maletas" data-producto-id="maleta-travelis">
+                <div class="h-64 bg-[url(/maletas-ind-1.jpg)] bg-cover bg-center bg-linear-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                    <span class="hidden">Maleta Travelis</span>
+                </div>
+                <div class="p-6! flex flex-col grow">
+                    <span class="inline-block px-3! py-1! text-xs bg-[#007078] text-white rounded-full mb-3! self-start font-semibold tracking-wide">INDIVIDUAL</span>
+                    <h3 class="font-serif text-3xl! font-bold! mb-2! text-[#333333]">Equipaje Travelis</h3>
+                    <p class="text-[#666666] mb-4 text-sm grow">Maleta individual con diseño práctico y resistente.</p>
+                    <div class="flex items-baseline justify-between mb-4!">
+                        <span class="text-2xl! font-bold text-[#B78B1E]">199,85 €</span>
+                    </div>
+                    <button 
+                        class="btn-add-cart w-full py-3! bg-[#B78B1E] text-white rounded font-semibold tracking-wide uppercase hover:bg-[#007078] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg mb-3"
+                        onclick="addProductToCart('maleta-travelis', 'Equipaje Travelis', 199.85);">
+                        Añadir al Carrito
+                    </button>
+                    <div class="flex items-center justify-between gap-2 bg-gray-100 rounded px-4 py-2">
+                        <button onclick="removeProductFromCart('maleta-travelis');" class="w-8 h-8 bg-red-500 hover:bg-red-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            −
+                        </button>
+                        <span class="product-quantity font-bold text-gray-700 text-lg">0</span>
+                        <button onclick="addProductToCart('maleta-travelis', 'Equipaje Travelis', 199.85);" class="w-8 h-8 bg-green-500 hover:bg-green-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maleta Luxuria -->
+            <div class="producto-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col" data-categoria="maletas" data-producto-id="maleta-luxuria">
+                <div class="h-64 bg-[url(/maletas-ind-2.jpg)] bg-cover bg-center bg-linear-to-br from-indigo-500 to-indigo-700 flex items-center justify-center">
+                    <span class="hidden">Maleta Luxuria</span>
+                </div>
+                <div class="p-6! flex flex-col grow">
+                    <span class="inline-block px-3! py-1! text-xs bg-[#007078] text-white rounded-full mb-3! self-start font-semibold tracking-wide">INDIVIDUAL</span>
+                    <h3 class="font-serif text-3xl! font-bold! mb-2! text-[#333333]">Equipaje Luxuria</h3>
+                    <p class="text-[#666666] mb-4 text-sm grow">Elegancia y funcionalidad en un solo producto.</p>
+                    <div class="flex items-baseline justify-between mb-4!">
+                        <span class="text-2xl font-bold text-[#B78B1E]">299,85 €</span>
+                    </div>
+                    <button 
+                        class="btn-add-cart w-full py-3 bg-[#B78B1E] text-white rounded font-semibold tracking-wide uppercase hover:bg-[#007078] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg mb-3"
+                        onclick="addProductToCart('maleta-luxuria', 'Equipaje Luxuria', 299.85);">
+                        Añadir al Carrito
+                    </button>
+                    <div class="flex items-center justify-between gap-2 bg-gray-100 rounded px-4 py-2">
+                        <button onclick="removeProductFromCart('maleta-luxuria');" class="w-8 h-8 bg-red-500 hover:bg-red-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            −
+                        </button>
+                        <span class="product-quantity font-bold text-gray-700 text-lg">0</span>
+                        <button onclick="addProductToCart('maleta-luxuria', 'Equipaje Luxuria', 299.85);" class="w-8 h-8 bg-green-500 hover:bg-green-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maleta SureLux -->
+            <div class="producto-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col" data-categoria="maletas" data-producto-id="maleta-surelux">
+                <div class="h-64 bg-[url(/maletas-ind-3.jpg)] bg-cover bg-center bg-linear-to-br from-rose-500 to-rose-700 flex items-center justify-center">
+                    <span class="hidden">Maleta SureLux</span>
+                </div>
+                <div class="p-6! flex flex-col grow">
+                    <span class="inline-block px-3! py-1! text-xs bg-[#007078] text-white rounded-full mb-3! self-start font-semibold tracking-wide">INDIVIDUAL</span>
+                    <h3 class="font-serif text-3xl! font-bold! mb-2! text-[#333333]">Equipaje SureLux</h3>
+                    <p class="text-[#666666] mb-4 text-sm grow">Máxima calidad y estilo para viajeros exigentes.</p>
+                    <div class="flex items-baseline justify-between mb-4!">
+                        <span class="text-2xl font-bold text-[#B78B1E]">599,85 €</span>
+                    </div>
+                    <button 
+                        class="btn-add-cart w-full py-3! bg-[#B78B1E] text-white rounded font-semibold tracking-wide uppercase hover:bg-[#007078] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg mb-3"
+                        onclick="addProductToCart('maleta-surelux', 'Equipaje SureLux', 599.85);">
+                        Añadir al Carrito
+                    </button>
+                    <div class="flex items-center justify-between gap-2 bg-gray-100 rounded px-4 py-2">
+                        <button onclick="removeProductFromCart('maleta-surelux');" class="w-8 h-8 bg-red-500 hover:bg-red-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            −
+                        </button>
+                        <span class="product-quantity font-bold text-gray-700 text-lg">0</span>
+                        <button onclick="addProductToCart('maleta-surelux', 'Equipaje SureLux', 599.85);" class="w-8 h-8 bg-green-500 hover:bg-green-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maletín Travelis -->
+            <div class="producto-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col" data-categoria="maletines" data-producto-id="maletin-travelis">
+                <div class="h-64 bg-[url(/maletas-small-1.jpg)] bg-cover bg-center bg-linear-to-br from-green-500 to-green-700 flex items-center justify-center">
+                    <span class="hidden">Maletín Travelis</span>
+                </div>
+                <div class="p-6! flex flex-col grow">
+                    <span class="inline-block px-3! py-1! text-xs bg-[#007078] text-white rounded-full mb-3! self-start font-semibold tracking-wide">MALETÍN</span>
+                    <h3 class="font-serif text-3xl! font-bold! mb-2! text-[#333333]">Maletín Travelis</h3>
+                    <p class="text-[#666666] mb-4 text-sm grow">Compacto y versátil para tus viajes cortos.</p>
+                    <div class="flex items-baseline justify-between mb-4!">
+                        <span class="text-2xl! font-bold text-[#B78B1E]">79,85 €</span>
+                    </div>
+                    <button 
+                        class="btn-add-cart w-full py-3! bg-[#B78B1E] text-white rounded font-semibold tracking-wide uppercase hover:bg-[#007078] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg mb-3"
+                        onclick="addProductToCart('maletin-travelis', 'Maletín Travelis', 79.85);">
+                        Añadir al Carrito
+                    </button>
+                    <div class="flex items-center justify-between gap-2 bg-gray-100 rounded px-4 py-2">
+                        <button onclick="removeProductFromCart('maletin-travelis');" class="w-8 h-8 bg-red-500 hover:bg-red-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            −
+                        </button>
+                        <span class="product-quantity font-bold text-gray-700 text-lg">0</span>
+                        <button onclick="addProductToCart('maletin-travelis', 'Maletín Travelis', 79.85);" class="w-8 h-8 bg-green-500 hover:bg-green-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maletín Luxuria -->
+            <div class="producto-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col" data-categoria="maletines" data-producto-id="maletin-luxuria">
+                <div class="h-64 bg-[url(/maletas-small-2.jpg)] bg-cover bg-center bg-linear-to-br from-cyan-500 to-cyan-700 flex items-center justify-center">
+                    <span class="hidden">Maletín Luxuria</span>
+                </div>
+                <div class="p-6! flex flex-col grow">
+                    <span class="inline-block px-3! py-1! text-xs bg-[#007078] text-white rounded-full mb-3! self-start font-semibold tracking-wide">MALETÍN</span>
+                    <h3 class="font-serif text-3xl! font-bold! mb-2! text-[#333333]">Maletín Luxuria</h3>
+                    <p class="text-[#666666] mb-4 text-sm grow">Estilo profesional con materiales de primera calidad.</p>
+                    <div class="flex items-baseline justify-between mb-4!">
+                        <span class="text-2xl! font-bold text-[#B78B1E]">95,99 €</span>
+                    </div>
+                    <button 
+                        class="btn-add-cart w-full py-3! bg-[#B78B1E] text-white rounded font-semibold tracking-wide uppercase hover:bg-[#007078] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg mb-3"
+                        onclick="addProductToCart('maletin-luxuria', 'Maletín Luxuria', 95.99);">
+                        Añadir al Carrito
+                    </button>
+                    <div class="flex items-center justify-between gap-2 bg-gray-100 rounded px-4 py-2">
+                        <button onclick="removeProductFromCart('maletin-luxuria');" class="w-8 h-8 bg-red-500 hover:bg-red-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            −
+                        </button>
+                        <span class="product-quantity font-bold text-gray-700 text-lg">0</span>
+                        <button onclick="addProductToCart('maletin-luxuria', 'Maletín Luxuria', 95.99);" class="w-8 h-8 bg-green-500 hover:bg-green-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maletín SureLux -->
+            <div class="producto-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col" data-categoria="maletines" data-producto-id="maletin-surelux">
+                <div class="h-64 bg-[url(/maletas-small-3.jpg)] bg-cover bg-center bg-linear-to-br from-orange-500 to-orange-700 flex items-center justify-center">
+                    <span class="hidden">Maletín SureLux</span>
+                </div>
+                <div class="p-6! flex flex-col grow">
+                    <span class="inline-block px-3! py-1! text-xs bg-[#007078] text-white rounded-full mb-3! self-start font-semibold tracking-wide">MALETÍN</span>
+                    <h3 class="font-serif text-3xl! font-bold! mb-2! text-[#333333]">Maletín SureLux</h3>
+                    <p class="text-[#666666] mb-4 text-sm grow">Exclusividad y sofisticación en un maletín de mano premium.</p>
+                    <div class="flex items-baseline justify-between mb-4!">
+                        <span class="text-2xl! font-bold text-[#B78B1E]">249,85 €</span>
+                    </div>
+                    <button 
+                        class="btn-add-cart w-full py-3! bg-[#B78B1E] text-white rounded font-semibold tracking-wide uppercase hover:bg-[#007078] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg mb-3"
+                        onclick="addProductToCart('maletin-surelux', 'Maletín SureLux', 249.85);">
+                        Añadir al Carrito
+                    </button>
+                    <div class="flex items-center justify-between gap-2 bg-gray-100 rounded px-4 py-2">
+                        <button onclick="removeProductFromCart('maletin-surelux');" class="w-8 h-8 bg-red-500 hover:bg-red-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            −
+                        </button>
+                        <span class="product-quantity font-bold text-gray-700 text-lg">0</span>
+                        <button onclick="addProductToCart('maletin-surelux', 'Maletín SureLux', 249.85);" class="w-8 h-8 bg-green-500 hover:bg-green-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            +
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+        <!-- Script de filtrado y control de carrito -->
+        <script is:inline>
+            // Funciones globales para agregar/quitar productos
+            function addProductToCart(id, nombre, precio) {
+                if (window.addToCart) {
+                    window.addToCart({ id, nombre, precio });
+                }
+            }
+
+            function removeProductFromCart(id) {
+                if (window.removeItem) {
+                    window.removeItem(id);
+                }
+            }
+
+            // Actualizar UI de los productos según el carrito
+            function updateProductUI() {
+                const cart = window.getCart ? window.getCart() : {};
+                console.log('Actualizando UI. Carrito:', cart);
+                
+                document.querySelectorAll('.producto-card').forEach(card => {
+                    const productoId = card.getAttribute('data-producto-id');
+                    const quantitySpan = card.querySelector('.product-quantity');
+                    
+                    if (productoId && quantitySpan) {
+                        const quantity = cart[productoId]?.cantidad || 0;
+                        console.log(`Producto ${productoId}: cantidad = ${quantity}`);
+                        quantitySpan.textContent = quantity;
+                    }
+                });
+            }
+
+            window.addEventListener('DOMContentLoaded', () => {
+                // Actualizar UI inicial después de un delay para asegurar que window.getCart esté disponible
+                setTimeout(() => {
+                    console.log('Inicializando UI de productos');
+                    updateProductUI();
+                }, 200);
+
+                // Escuchar cambios en el carrito
+                window.addEventListener('cartUpdated', (event) => {
+                    console.log('Evento cartUpdated recibido:', event.detail);
+                    updateProductUI();
+                });
+
+                // Filtros de productos
+                const productos = document.querySelectorAll('.producto-card');
+                const botonesFiltro = document.querySelectorAll('.btn-filtro');
+                const productosGrid = document.getElementById('productos-grid');
+
+                botonesFiltro.forEach(boton => {
+                    boton.addEventListener('click', function() {
+                        const categoria = this.getAttribute('data-filtro');
+                        
+                        // Actualizar botones activos
+                        botonesFiltro.forEach(b => {
+                            b.classList.remove('bg-[#007078]', 'text-white', 'border-[#007078]');
+                            b.classList.add('bg-white', 'border-gray-300', 'text-gray-700');
+                        });
+                        this.classList.add('bg-[#007078]', 'text-white', 'border-[#007078]');
+                        this.classList.remove('bg-white', 'border-gray-300', 'text-gray-700');
+
+                        // Filtrar productos con animación
+                        if (productosGrid) {
+                            productosGrid.style.opacity = '0';
+                            
+                            setTimeout(() => {
+                                productos.forEach(producto => {
+                                    const esVisible = categoria === 'todos' || producto.getAttribute('data-categoria') === categoria;
+                                    
+                                    if (esVisible) {
+                                        producto.classList.remove('hidden');
+                                        setTimeout(() => {
+                                            producto.style.opacity = '1';
+                                            producto.style.transform = 'translateY(0)';
+                                        }, 50);
+                                    } else {
+                                        producto.style.opacity = '0';
+                                        producto.style.transform = 'translateY(20px)';
+                                        setTimeout(() => {
+                                            producto.classList.add('hidden');
+                                        }, 300);
+                                    }
+                                });
+                                
+                                productosGrid.style.opacity = '1';
+                            }, 200);
+                        }
+                    });
+                });
+
+                // Animación inicial de productos
+                productos.forEach((card, index) => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'all 0.5s ease-out';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100 + index * 50);
+                });
+            });
+        </script>
+</Store>
+
+<style>
+    @keyframes fadeInNav {
+        from {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    .animation-fadeInNav {
+        animation: fadeInNav 0.5s ease-out forwards;
+    }
+    
+    .animation-delay-100 { animation-delay: 0.1s; }
+    .animation-delay-200 { animation-delay: 0.2s; }
+    .animation-delay-300 { animation-delay: 0.3s; }
+    .animation-delay-400 { animation-delay: 0.4s; }
+    .animation-delay-500 { animation-delay: 0.5s; }
+</style>
