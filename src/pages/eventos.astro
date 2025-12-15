@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+    <main class="max-w-[1400px]! mx-auto! px-[5%]! py-12!">
+        <h1 class="hidden!">Eventos Page</h1>
+        
+        <!-- Encabezado de sección -->
+        <div class="text-center! mb-12!">
+            <h2 class="text-4xl! font-serif! font-bold! text-[#007078]! mb-4!">Eventos Exclusivos</h2>
+            <p class="text-[#666666]! text-lg! max-w-2xl! mx-auto!">Accede a los eventos más exclusivos y experiencias únicas en España</p>
+        </div>
+
+        <!-- Grid de tarjetas -->
+        <div class="grid! grid-cols-1! md:grid-cols-2! gap-8!">
+            
+            <!-- Tarjeta 1 -->
+            <div class="bg-white! rounded-xl! overflow-hidden! shadow-lg! hover:shadow-2xl! transition-all! duration-300! hover:-translate-y-2! flex! flex-col!">
+                <div class="h-64! overflow-hidden!">
+                    <img src="/eventos-semana-moda-madrid.jpg" alt="La Semana de la Moda Madrid 2026" class="w-full! h-full! object-cover! transition-transform! duration-500! hover:scale-110!"> 
+                </div>
+                <div class="p-6! flex! flex-col! grow!">
+                    <h2 class="text-2xl! font-serif! font-bold! text-[#007078]! mb-3!">La Semana de la Moda Madrid 2026</h2>
+                    <p class="text-[#666666]! mb-6! grow! leading-relaxed!">Del 15 al 20 de febrero de 2026, Madrid se convierte en la capital mundial de la moda con desfiles de diseñadores internacionales, exposiciones y eventos exclusivos. Consigue tus entradas ahora y no te pierdas ningún desfile.</p>
+                    <a href="/contacto?reserva=true" class="bg-[#B78B1E]! text-white! py-3! px-8! rounded! font-semibold! uppercase! tracking-wide! hover:bg-[#007078]! transition-all! duration-300! hover:-translate-y-1! hover:shadow-lg! self-start! inline-block!">Reserva</a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="bg-white! rounded-xl! overflow-hidden! shadow-lg! hover:shadow-2xl! transition-all! duration-300! hover:-translate-y-2! flex! flex-col!">
+                <div class="h-64! overflow-hidden!">
+                    <img src="/eventos-festival-musica-electronica-barcelona.jpg" alt="Festival de Música Electrónica Barcelona 2026" class="w-full! h-full! object-cover! transition-transform! duration-500! hover:scale-110!">
+                </div>
+                <div class="p-6! flex! flex-col! grow!">
+                    <h2 class="text-2xl! font-serif! font-bold! text-[#007078]! mb-3!">Festival de Música Electrónica Barcelona 2026</h2>
+                    <p class="text-[#666666]! mb-6! grow! leading-relaxed!">El 10 y 11 de julio de 2026, disfruta de dos noches inolvidables con los mejores DJs y productores en el Festival de Música Electrónica en Barcelona. Te conseguimos entradas VIP para los conciertos así como el "Meet and Greet" con tus artistas favoritos.</p>
+                    <a href="/contacto?reserva=true" class="bg-[#B78B1E]! text-white! py-3! px-8! rounded! font-semibold! uppercase! tracking-wide! hover:bg-[#007078]! transition-all! duration-300! hover:-translate-y-1! hover:shadow-lg! self-start! inline-block!">Reserva</a>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 3 -->
+            <div class="bg-white! rounded-xl! overflow-hidden! shadow-lg! hover:shadow-2xl! transition-all! duration-300! hover:-translate-y-2! flex! flex-col!">
+                <div class="h-64! overflow-hidden!">
+                    <img src="/eventos-semana-santa-sevilla.jpg" alt="Semana Santa Sevilla 2026" class="w-full! h-full! object-cover! transition-transform! duration-500! hover:scale-110!">
+                </div>
+                <div class="p-6! flex! flex-col! grow!">
+                    <h2 class="text-2xl! font-serif! font-bold! text-[#007078]! mb-3!">Semana Santa Sevilla 2026</h2>
+                    <p class="text-[#666666]! mb-6! grow! leading-relaxed!">Del 29 de marzo al 5 de abril de 2026, vive la tradición y la emoción de la Semana Santa en Sevilla, con procesiones, música y eventos culturales. Te conseguimos entradas a las festividades exclusivas que ofrecen las peñas y palcos exclusivos para admirar las procesiones.</p>
+                    <a href="/contacto?reserva=true" class="bg-[#B78B1E]! text-white! py-3! px-8! rounded! font-semibold! uppercase! tracking-wide! hover:bg-[#007078]! transition-all! duration-300! hover:-translate-y-1! hover:shadow-lg! self-start! inline-block!">Reserva</a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="bg-white! rounded-xl! overflow-hidden! shadow-lg! hover:shadow-2xl! transition-all! duration-300! hover:-translate-y-2! flex! flex-col!">
+                <div class="h-64! overflow-hidden!">
+                    <img src="/eventos-fiestas-pilar-zaragoza.jpg" alt="Fiestas del Pilar Zaragoza 2026" class="w-full! h-full! object-cover! transition-transform! duration-500! hover:scale-110!">
+                </div>
+                <div class="p-6! flex! flex-col! grow!">
+                    <h2 class="text-2xl! font-serif! font-bold! text-[#007078]! mb-3!">Fiestas del Pilar Zaragoza 2026</h2>
+                    <p class="text-[#666666]! mb-6! grow! leading-relaxed!">Del 10 al 18 de octubre de 2026, celebra las Fiestas del Pilar en Zaragoza con actividades culturales, conciertos y eventos tradicionales. Reserva desde ya tus entradas a los conciertos y actividades exclusivas en la ciudad.</p>
+                    <a href="/contacto?reserva=true" class="bg-[#B78B1E]! text-white! py-3! px-8! rounded! font-semibold! uppercase! tracking-wide! hover:bg-[#007078]! transition-all! duration-300! hover:-translate-y-1! hover:shadow-lg! self-start! inline-block!">Reserva</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</Layout>

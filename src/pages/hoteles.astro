@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+    <main class="max-w-[1400px]! mx-auto! px-[5%]! py-12!">
+        <h1 class="hidden!">Hoteles Page</h1>
+        
+        <!-- Encabezado de sección -->
+        <div class="text-center! mb-12!">
+            <h2 class="text-4xl! font-serif! font-bold! text-[#007078]! mb-4!">Hoteles de Lujo</h2>
+            <p class="text-[#666666]! text-lg! max-w-2xl! mx-auto!">Reservamos tu estancia en los hoteles más exclusivos de España</p>
+        </div>
+
+        <!-- Grid de tarjetas -->
+        <div class="grid! grid-cols-1! md:grid-cols-2! gap-8!">
+            
+            <!-- Tarjeta 1 -->
+            <div class="bg-white! rounded-xl! overflow-hidden! shadow-lg! hover:shadow-2xl! transition-all! duration-300! hover:-translate-y-2! flex! flex-col!">
+                <div class="h-64! overflow-hidden!">
+                    <img src="/hoteles-mandarin-oriental-ritz.jpg" alt="Mandarin Oriental Ritz" class="w-full! h-full! object-cover! transition-transform! duration-500! hover:scale-110!"> 
+                </div>
+                <div class="p-6! flex! flex-col! grow!">
+                    <h2 class="text-2xl! font-serif! font-bold! text-[#007078]! mb-3!">Mandarin Oriental Ritz</h2>
+                    <p class="text-[#666666]! mb-6! grow! leading-relaxed!">Este lujoso palacio de la "belle époque" situado en el conocido Triángulo del Arte madrileño, con más de un siglo de historia, es símbolo de estilo y elegancia. Te reservamos estancias inolvidables en este icónico hotel.</p>
+                    <a href="/contacto?reserva=true" class="bg-[#B78B1E]! text-white! py-3! px-8! rounded! font-semibold! uppercase! tracking-wide! hover:bg-[#007078]! transition-all! duration-300! hover:-translate-y-1! hover:shadow-lg! self-start! inline-block!">Reserva</a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="bg-white! rounded-xl! overflow-hidden! shadow-lg! hover:shadow-2xl! transition-all! duration-300! hover:-translate-y-2! flex! flex-col!">
+                <div class="h-64! overflow-hidden!">
+                    <img src="/hoteles-palafox-zaragoza.jpg" alt="Hotel Palafox Zaragoza" class="w-full! h-full! object-cover! transition-transform! duration-500! hover:scale-110!">
+                </div>
+                <div class="p-6! flex! flex-col! grow!">
+                    <h2 class="text-2xl! font-serif! font-bold! text-[#007078]! mb-3!">Hotel Palafox Zaragoza</h2>
+                    <p class="text-[#666666]! mb-6! grow! leading-relaxed!">Ubicado en el corazón de Zaragoza, el Hotel Palafox combina modernidad y confort con una ubicación privilegiada cerca de los principales puntos turísticos de la ciudad. Ideal para viajeros que buscan comodidad y estilo.</p>
+                    <a href="/contacto?reserva=true" class="bg-[#B78B1E]! text-white! py-3! px-8! rounded! font-semibold! uppercase! tracking-wide! hover:bg-[#007078]! transition-all! duration-300! hover:-translate-y-1! hover:shadow-lg! self-start! inline-block!">Reserva</a>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 3 -->
+            <div class="bg-white! rounded-xl! overflow-hidden! shadow-lg! hover:shadow-2xl! transition-all! duration-300! hover:-translate-y-2! flex! flex-col!">
+                <div class="h-64! overflow-hidden!">
+                    <img src="/hoteles-marriott-marbella.jpg" alt="Marriott's Marbella Beach Resort" class="w-full! h-full! object-cover! transition-transform! duration-500! hover:scale-110!">
+                </div>
+                <div class="p-6! flex! flex-col! grow!">
+                    <h2 class="text-2xl! font-serif! font-bold! text-[#007078]! mb-3!">Marriott's Marbella Beach Resort</h2>
+                    <p class="text-[#666666]! mb-6! grow! leading-relaxed!">Disfruta de la comodidad y el lujo en Marriott's Marbella Beach Resort, ubicado frente al mar en la Costa del Sol. Perfecto para unas vacaciones relajantes con acceso a playas, golf y gastronomía de primer nivel.</p>
+                    <a href="/contacto?reserva=true" class="bg-[#B78B1E]! text-white! py-3! px-8! rounded! font-semibold! uppercase! tracking-wide! hover:bg-[#007078]! transition-all! duration-300! hover:-translate-y-1! hover:shadow-lg! self-start! inline-block!">Reserva</a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="bg-white! rounded-xl! overflow-hidden! shadow-lg! hover:shadow-2xl! transition-all! duration-300! hover:-translate-y-2! flex! flex-col!">
+                <div class="h-64! overflow-hidden!">
+                    <img src="/hoteles-nobu-san-sebastian.jpg" alt="Nobu Hotel San Sebastián" class="w-full! h-full! object-cover! transition-transform! duration-500! hover:scale-110!">
+                </div>
+                <div class="p-6! flex! flex-col! grow!">
+                    <h2 class="text-2xl! font-serif! font-bold! text-[#007078]! mb-3!">Nobu Hotel San Sebastián</h2>
+                    <p class="text-[#666666]! mb-6! grow! leading-relaxed!">Experimenta el lujo contemporáneo y la exquisita gastronomía en Nobu Hotel San Sebastián, ubicado en una de las ciudades más bellas del País Vasco. Ideal para quienes buscan una estancia exclusiva y cultural.</p>
+                    <a href="/contacto?reserva=true" class="bg-[#B78B1E]! text-white! py-3! px-8! rounded! font-semibold! uppercase! tracking-wide! hover:bg-[#007078]! transition-all! duration-300! hover:-translate-y-1! hover:shadow-lg! self-start! inline-block!">Reserva</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</Layout>

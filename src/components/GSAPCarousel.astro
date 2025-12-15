@@ -10,7 +10,7 @@
                 <div class="card-content relative bg-[url(/carrusel-asturias.jpg)] bg-cover bg-center rounded-2xl shadow-2xl flex flex-col justify-center items-center text-center overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-black/40 before:z-0">
                     <h2 class="relative z-10 text-white! text-6xl! font-bold! drop-shadow-2xl">Destinos</h2>
                     <p class="relative z-10! text-white! text-2xl! mt-4! font-semibold! drop-shadow-lg px-8!">Diseñamos tu viaje de ensueño.</p>
-                    <button class="relative z-10 mt-6!"><a href="/blog">Reserva Ahora</a></button>
+                    <button class="relative z-10 mt-6!"><a href="/destinos">Reserva Ahora</a></button>
                 </div>
             </div>
             
@@ -19,7 +19,7 @@
                 <div class="card-content relative bg-[url(/carrusel-evento.jpg)] bg-cover bg-center rounded-2xl shadow-2xl flex flex-col justify-center items-center text-center overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-black/50 before:z-0">
                     <h2 class="relative z-10 text-white! text-6xl! font-bold! drop-shadow-2xl">Eventos</h2>
                     <p class="relative z-10! text-white! text-2xl! mt-4! font-semibold! drop-shadow-lg! px-8!">Entradas a conciertos y ocasiones exclusivas.</p>
-                    <button class="relative z-10 mt-6!"><a href="/blog">Reserva Ahora</a></button>
+                    <button class="relative z-10 mt-6!"><a href="/eventos">Reserva Ahora</a></button>
                 </div>
             </div>
             
@@ -28,7 +28,7 @@
                 <div class="card-content relative bg-[url(/carrusel-hotel.jpg)] bg-cover bg-center rounded-2xl shadow-2xl flex flex-col justify-center items-center text-center overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-black/40 before:z-0">
                     <h2 class="relative z-10 text-white! text-6xl! font-bold! drop-shadow-2xl">Hoteles</h2>
                     <p class="relative z-10! text-white! text-2xl! mt-4! font-semibold! drop-shadow-lg! px-8!">Reservamos tu estancia y actividades.</p>
-                    <button class="relative z-10 mt-6!"><a href="/blog">Reserva Ahora</a></button>
+                    <button class="relative z-10 mt-6!"><a href="/hoteles">Reserva Ahora</a></button>
                 </div>
             </div>
             
@@ -37,7 +37,7 @@
                 <div class="card-content relative bg-[url(/carrusel-chalet.jpg)] bg-cover bg-center rounded-2xl shadow-2xl flex flex-col justify-center items-center text-center overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-black/50 before:z-0">
                     <h2 class="relative z-10 text-white! text-6xl! font-bold! drop-shadow-2xl">Chalets</h2>
                     <p class="relative z-10! text-white! text-2xl! mt-4! font-semibold! drop-shadow-lg! px-8!">Alquilamos los alojamientos más exclusivos</p>
-                    <button class="relative z-10 mt-6!"><a href="/blog">Reserva Ahora</a></button>
+                    <button class="relative z-10 mt-6!"><a href="/chalets">Reserva Ahora</a></button>
                 </div>
             </div>
         </div>
@@ -64,7 +64,9 @@
     .cards-wrapper {
         display: flex;
         gap: 3rem;
-        padding: 0 10vw;
+        /* Padding inicial para centrar la primera carta */
+        padding-left: calc(50vw - min(40vw, 500px));
+        padding-right: calc(50vw - min(40vw, 500px));
         will-change: transform;
     }
 
@@ -135,7 +137,8 @@
 
         .cards-wrapper {
             gap: 2rem;
-            padding: 0 5vw;
+            padding-left: calc(50vw - 45vw);
+            padding-right: calc(50vw - 45vw);
         }
 
         .card-content {
@@ -179,9 +182,16 @@
 
     if (section && wrapper && cards.length > 0) {
         // Calcular el ancho total del scroll horizontal
+        // Consideramos el padding inicial que centra la primera carta
         const getScrollAmount = () => {
             const wrapperWidth = wrapper.scrollWidth;
             return -(wrapperWidth - window.innerWidth);
+        };
+        
+        // Calcular el centro de cada carta para las animaciones
+        const getCardCenter = (card: HTMLElement) => {
+            const cardRect = card.getBoundingClientRect();
+            return cardRect.left + cardRect.width / 2;
         };
 
         // Crear el scroll horizontal principal
@@ -199,29 +209,49 @@
             }
         });
 
-        // Animación de escala para cada card individual
+        // Animación de escala para cada card - cenit en el centro de la pantalla
         cards.forEach((card, index) => {
             const cardContent = card.querySelector('.card-content') as HTMLElement;
             
             if (cardContent) {
-                // Animación de entrada desde abajo
-                gsap.from(cardContent, {
-                    scale: 0.8,
-                    opacity: 0,
-                    duration: 1,
-                    ease: 'power2.out',
+                // Timeline para escalar: pequeño -> grande (centro) -> pequeño
+                // Empieza pequeña, llega al máximo en el centro, vuelve a pequeña
+                gsap.fromTo(cardContent, 
+                    {
+                        scale: 0.85,
+                        opacity: 0.6,
+                    },
+                    {
+                        scale: 1,
+                        opacity: 1,
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger: card,
+                            containerAnimation: horizontalScroll,
+                            start: 'left 80%',
+                            end: 'center center',
+                            scrub: 1,
+                        }
+                    }
+                );
+                
+                // Salida: de grande a pequeña después del centro
+                gsap.to(cardContent, {
+                    scale: 0.85,
+                    opacity: 0.6,
+                    ease: 'none',
                     scrollTrigger: {
                         trigger: card,
                         containerAnimation: horizontalScroll,
-                        start: 'left center',
-                        end: 'center center',
+                        start: 'center center',
+                        end: 'right 20%',
                         scrub: 1,
                     }
                 });
 
-                // Efecto parallax en el contenido
+                // Efecto parallax suave en el contenido
                 gsap.to(cardContent, {
-                    y: -50,
+                    y: -30,
                     scrollTrigger: {
                         trigger: card,
                         containerAnimation: horizontalScroll,
@@ -232,6 +262,12 @@
                 });
             }
         });
+        
+        // Establecer estado inicial de la primera carta (ya centrada)
+        const firstCardContent = cards[0]?.querySelector('.card-content') as HTMLElement;
+        if (firstCardContent) {
+            gsap.set(firstCardContent, { scale: 1, opacity: 1 });
+        }
 
         // Ajustar la altura de la sección para el scroll
         const setHeight = () => {
