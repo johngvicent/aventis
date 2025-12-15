@@ -24,7 +24,7 @@
 /* Estilos Generales */
 body {
     font-family: var(--font-body);
-    background-color: var(--color-primary);
+    background-color: var(--color-primary)!important;
     color: var(--color-text);
     line-height: 1.6;
     font-size: 16px;
@@ -55,7 +55,7 @@ h3 {
 
 p {
     margin-bottom: 1rem;
-    color: var(--color-text-light);
+    color: var(--color-text);
     font-weight: 500;
 }
 
@@ -82,7 +82,7 @@ main {
 /* Articles */
 article {
     margin-bottom: 4rem;
-    background-color: #ffffff;
+    background-color: #f0f0f0;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);

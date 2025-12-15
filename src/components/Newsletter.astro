@@ -1,0 +1,45 @@
+---
+// Componente Newsletter reutilizable
+---
+
+<article>
+    <div class="relative h-120! px-12! py-16! bg-[url(/newsletter-pirineos.jpg)] bg-cover bg-center flex flex-col justify-center items-center text-center text-white! overflow-hidden rounded-lg shadow-2xl before:content-[''] before:absolute before:inset-0 before:bg-black/40 before:z-0">
+        <h2 class="relative z-10 font-['EB_Garamond'] text-white! text-5xl! font-bold! tracking-wide mb-4! drop-shadow-lg">
+            Suscríbete a nuestra newsletter
+        </h2>
+        <p class="relative z-10 font-['Montserrat'] text-white! text-xl! font-semibold! tracking-wide! mb-8! max-w-2xl! drop-shadow-md">
+            Regístrate con tu correo electrónico y recibe actualizaciones y noticias directamente en tu bandeja de entrada.
+        </p>
+        <form class="relative z-10 w-full max-w-2xl">
+            <div class="flex flex-col md:flex-row gap-4 mb-8!">
+                <input 
+                    type="email" 
+                    placeholder="Tu correo electrónico" 
+                    class="flex-1 px-6 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B78B1E] font-['Montserrat'] text-gray-800"
+                    required
+                />
+                <button 
+                    type="submit" 
+                    class="bg-[#B78B1E] hover:bg-[#007078] text-white! font-['Montserrat'] font-bold! px-8 py-3 rounded-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg uppercase tracking-wider"
+                >
+                    Suscribirse
+                </button>
+            </div>
+            <div class="flex items-start gap-3 text-left">
+                <input 
+                    type="checkbox" 
+                    id="terminos" 
+                    name="terminos" 
+                    class="w-5 h-5 mt-1 accent-[#B78B1E] cursor-pointer shrink-0"
+                    required
+                />
+                <label 
+                    for="terminos" 
+                    class="font-['Montserrat'] text-sm font-normal leading-relaxed cursor-pointer"
+                >
+                    He leído y acepto la información básica sobre protección de datos así como el aviso legal, la política de privacidad y acepto el tratamiento de mis datos para realizar la solicitud realizada.
+                </label>
+            </div>
+        </form>
+    </div>
+</article>
