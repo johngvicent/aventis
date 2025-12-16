@@ -1,0 +1,141 @@
+---
+// Array de imágenes para el carrusel
+const images = [
+    '/hotel-logo-mandarin.png',
+    '/hotel-logo-peninsula.png',
+    '/hotel-logo-ritz.png',
+    '/hotel-logo-rosewood.png',
+    '/hotel-logo-rocco.png',
+    '/hotel-logo-seasons.png',
+    '/hotel-logo-starwood.png',
+    '/hotel-logo-belmond.png',
+];
+---
+
+<section class="py-16! mb-10! overflow-hidden! bg-[#E9E4E3]!">
+    <div class="max-w-7xl! mx-auto! px-4! sm:px-6! lg:px-8! mb-10!">
+        <div class="text-center!">
+            <span class="inline-block! bg-[#B78B1E]! text-white! font-['Montserrat']! font-semibold! text-xs! px-4! py-2! rounded-full! uppercase! tracking-widest! mb-4! shadow-md!">
+                Nuestros Partners
+            </span>
+            <h2 class="font-['EB_Garamond']! text-3xl! sm:text-4xl! md:text-5xl! text-[#007078]! font-bold! mb-4!">
+                Asociados con los Mejores Hoteles
+            </h2>
+            <p class="font-['Montserrat']! text-lg! text-[#666666]! max-w-2xl! mx-auto! font-medium!">
+                Colaboramos con las cadenas hoteleras más prestigiosas de la Península Ibérica.
+            </p>
+        </div>
+    </div>
+
+    <!-- Carrusel Container -->
+    <div class="relative!">
+        <!-- Gradient Overlays -->
+        <div class="absolute! left-0! top-0! bottom-0! w-32! bg-linear-to-r! from-[#E9E4E3]! to-transparent! z-10! pointer-events-none!"></div>
+        <div class="absolute! right-0! top-0! bottom-0! w-32! bg-linear-to-l! from-[#E9E4E3]! to-transparent! z-10! pointer-events-none!"></div>
+        
+        <!-- Carrusel de logos -->
+        <div class="carrusel-wrapper!">
+            <div id="carrusel-hoteles" class="carrusel-track! flex! gap-8! items-center!">
+                {images.map((image) => (
+                    <div class="hotel-card! shrink-0! w-64! h-40! bg-white! rounded-xl! p-6! shadow-lg! hover:shadow-2xl! transition-all! duration-300! hover:scale-105! flex! items-center! justify-center! border! border-[#007078]/10!">
+                        <img 
+                            src={image} 
+                            alt="Hotel Logo" 
+                            class="w-full! h-full! object-contain! filter! grayscale! hover:grayscale-0! transition-all! duration-300!"
+                        />
+                    </div>
+                ))}
+                {/* Duplicar para loop infinito */}
+                {images.map((image) => (
+                    <div class="hotel-card! shrink-0! w-64! h-40! bg-white! rounded-xl! p-6! shadow-lg! hover:shadow-2xl! transition-all! duration-300! hover:scale-105! flex! items-center! justify-center! border! border-[#007078]/10!">
+                        <img 
+                            src={image} 
+                            alt="Hotel Logo" 
+                            class="w-full! h-full! object-contain! filter! grayscale! hover:grayscale-0! transition-all! duration-300!"
+                        />
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>
+
+<script is:inline>
+    function iniciarCarruselHoteles() {
+        const carrusel = document.getElementById('carrusel-hoteles');
+        if (!carrusel) return;
+        
+        let posicion = 0;
+        const velocidad = 0.5; // Pixeles por frame (más lento que comentarios)
+        let animacionActiva = true;
+        
+        // Obtener el ancho de la mitad del contenido (para loop infinito)
+        const anchoMitad = carrusel.scrollWidth / 2;
+        
+        function animar() {
+            if (animacionActiva) {
+                posicion += velocidad;
+                
+                // Resetear posición para loop infinito
+                if (posicion >= anchoMitad) {
+                    posicion = 0;
+                }
+                
+                carrusel.style.transform = `translateX(-${posicion}px)`;
+            }
+            requestAnimationFrame(animar);
+        }
+        
+        // Pausar al hacer hover
+        carrusel.addEventListener('mouseenter', () => {
+            animacionActiva = false;
+        });
+        
+        carrusel.addEventListener('mouseleave', () => {
+            animacionActiva = true;
+        });
+        
+        // Iniciar la animación
+        requestAnimationFrame(animar);
+    }
+    
+    // Iniciar carrusel cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', iniciarCarruselHoteles);
+    } else {
+        iniciarCarruselHoteles();
+    }
+</script>
+
+<style>
+    .carrusel-wrapper {
+        overflow: hidden;
+        width: 100%;
+    }
+    
+    .carrusel-track {
+        display: flex;
+        width: max-content;
+        gap: 2rem;
+        align-items: center;
+    }
+    
+    /* Efecto de escala de grises a color en hover */
+    .hotel-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 20px 25px -5px rgba(0, 112, 120, 0.2), 0 10px 10px -5px rgba(0, 112, 120, 0.1);
+    }
+    
+    /* Responsive */
+    @media (max-width: 640px) {
+        .hotel-card {
+            width: 200px !important;
+            height: 120px !important;
+            padding: 1rem !important;
+        }
+        
+        .carrusel-track {
+            gap: 1rem !important;
+        }
+    }
+</style>

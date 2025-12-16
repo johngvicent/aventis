@@ -2,11 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Opiniones from '../components/Opiniones.astro';
 import Carruselhome from '../components/Carruselhome.astro';
+import Carruselhoteles from '../components/Carruselhoteles.astro';
 
 ---
 
 <Layout>
 	<main>
+		<h1 class="hidden">Aventis Viajes de Lujo en España</h1>
 		<article>
 			<div class="contenido-articulo">
 				<img src="/logotipo-color.svg" alt="Logo Aventis Color" class="w-100! img-shadow-lg mb-0! mx-auto!">
@@ -58,6 +60,8 @@ import Carruselhome from '../components/Carruselhome.astro';
 		</article>
 
 		<Opiniones/>
+
+		<Carruselhoteles/>
 
 		<article>
 			<div class="relative h-120 pt-10! px-12! pb-6! bg-[url(/hotel.jpg)] bg-cover bg-center flex flex-col justify-center items-center text-center text-white overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-black/20 before:z-0">
