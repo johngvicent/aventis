@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+    <main class="max-w-[1400px]! mx-auto! px-[5%]! py-12!">
+        <h1 class="hidden!">Destinos Page</h1>
+        
+        <!-- Encabezado de sección -->
+        <div class="text-center! mb-12!">
+            <h2 class="text-4xl! font-serif! font-bold! text-[#007078]! mb-4!">Nuestros Destinos</h2>
+            <p class="text-[#666666]! text-lg! max-w-2xl! mx-auto!">Descubre experiencias únicas en los destinos más exclusivos de España</p>
+        </div>
+
+        <!-- Grid de tarjetas -->
+        <div class="grid! grid-cols-1! md:grid-cols-2! gap-8!">
+            
+            <!-- Tarjeta 1 -->
+            <div class="bg-white! rounded-xl! overflow-hidden! shadow-lg! hover:shadow-2xl! transition-all! duration-300! hover:-translate-y-2! flex! flex-col!">
+                <div class="h-64! overflow-hidden!">
+                    <img src="/destinos-tren-transcantabrico.jpg" alt="El Tren Transcantábrico" class="w-full! h-full! object-cover! transition-transform! duration-500! hover:scale-110!"> 
+                </div>
+                <div class="p-6! flex! flex-col! grow!">
+                    <h2 class="text-2xl! font-serif! font-bold! text-[#007078]! mb-3!">El Tren Transcantábrico</h2>
+                    <p class="text-[#666666]! mb-6! grow! leading-relaxed!">Viaja en el lujoso Tren Transcantábrico y descubre los paisajes del norte de España. Un recorrido único que combina confort, gastronomía y vistas espectaculares de la costa cantábrica.</p>
+                    <a href="/contacto?reserva=true" class="bg-[#B78B1E]! text-white! py-3! px-8! rounded! font-semibold! uppercase! tracking-wide! hover:bg-[#007078]! transition-all! duration-300! hover:-translate-y-1! hover:shadow-lg! self-start! inline-block!">Reserva</a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="bg-white! rounded-xl! overflow-hidden! shadow-lg! hover:shadow-2xl! transition-all! duration-300! hover:-translate-y-2! flex! flex-col!">
+                <div class="h-64! overflow-hidden!">
+                    <img src="/destinos-costa-sol.jpg" alt="La Costa del Sol" class="w-full! h-full! object-cover! transition-transform! duration-500! hover:scale-110!">
+                </div>
+                <div class="p-6! flex! flex-col! grow!">
+                    <h2 class="text-2xl! font-serif! font-bold! text-[#007078]! mb-3!">La Costa del Sol</h2>
+                    <p class="text-[#666666]! mb-6! grow! leading-relaxed!">Disfruta del sol y las playas de la Costa del Sol, con resorts de lujo, campos de golf y una vibrante vida nocturna. Perfecto para unas vacaciones relajantes o activas junto al mar.</p>
+                    <a href="/contacto?reserva=true" class="bg-[#B78B1E]! text-white! py-3! px-8! rounded! font-semibold! uppercase! tracking-wide! hover:bg-[#007078]! transition-all! duration-300! hover:-translate-y-1! hover:shadow-lg! self-start! inline-block!">Reserva</a>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 3 -->
+            <div class="bg-white! rounded-xl! overflow-hidden! shadow-lg! hover:shadow-2xl! transition-all! duration-300! hover:-translate-y-2! flex! flex-col!">
+                <div class="h-64! overflow-hidden!">
+                    <img src="/destinos-san-sebastian.jpg" alt="Recorrido Michelin en San Sebastián" class="w-full! h-full! object-cover! transition-transform! duration-500! hover:scale-110!">
+                </div>
+                <div class="p-6! flex! flex-col! grow!">
+                    <h2 class="text-2xl! font-serif! font-bold! text-[#007078]! mb-3!">Recorrido Michelin en San Sebastián</h2>
+                    <p class="text-[#666666]! mb-6! grow! leading-relaxed!">Explora la gastronomía de San Sebastián con un recorrido por sus restaurantes con estrellas Michelin. Una experiencia culinaria única para los amantes de la alta cocina.</p>
+                    <a href="/contacto?reserva=true" class="bg-[#B78B1E]! text-white! py-3! px-8! rounded! font-semibold! uppercase! tracking-wide! hover:bg-[#007078]! transition-all! duration-300! hover:-translate-y-1! hover:shadow-lg! self-start! inline-block!">Reserva</a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="bg-white! rounded-xl! overflow-hidden! shadow-lg! hover:shadow-2xl! transition-all! duration-300! hover:-translate-y-2! flex! flex-col!">
+                <div class="h-64! overflow-hidden!">
+                    <img src="/destinos-pirineo-aragones.jpg" alt="Esquí en el Pirineo Aragonés" class="w-full! h-full! object-cover! transition-transform! duration-500! hover:scale-110!">
+                </div>
+                <div class="p-6! flex! flex-col! grow!">
+                    <h2 class="text-2xl! font-serif! font-bold! text-[#007078]! mb-3!">Esquiamos en el Pirineo Aragonés</h2>
+                    <p class="text-[#666666]! mb-6! grow! leading-relaxed!">Disfruta de las mejores pistas de esquí en el Pirineo Aragonés, con estaciones para todos los niveles, paisajes impresionantes y una amplia oferta de actividades de invierno.</p>
+                    <a href="/contacto?reserva=true" class="bg-[#B78B1E]! text-white! py-3! px-8! rounded! font-semibold! uppercase! tracking-wide! hover:bg-[#007078]! transition-all! duration-300! hover:-translate-y-1! hover:shadow-lg! self-start! inline-block!">Reserva</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</Layout>

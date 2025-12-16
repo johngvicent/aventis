@@ -1,0 +1,215 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Newsletter from '../../components/Newsletter.astro';
+
+const metadata = {
+    categoria: 'Tendencias',
+    fecha: '14 de Diciembre, 2025',
+    autor: 'John Vicent'
+};
+---
+
+<Layout>
+    <main class="max-w-5xl! mx-auto! px-6! py-12!">
+        <article class=" rounded-lg overflow-hidden shadow-lg mb-16!">
+            <!-- Hero Image -->
+            <div class="relative h-96! bg-[url(/destinos-san-sebastian.jpg)] bg-cover bg-center flex flex-col justify-center items-center text-center  overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-black/50 before:z-0">
+                <div class="relative z-10 px-6! md:px-12">
+                    <h1 class="font-['EB_Garamond'] text-5xl! md:text-7xl! text-white! font-bold! tracking-wide mb-4! drop-shadow-lg!">
+                        España con Estrella MICHELIN
+                    </h1>
+                    <h2 class="font-['EB_Garamond'] text-2xl! md:text-3xl! text-white!  font-semibold tracking-wide drop-shadow-md">
+                        Los Templos de la Gastronomía Ibérica
+                    </h2>
+                </div>
+            </div>
+
+            <!-- Metadata Section -->
+            <div class="px-6! md:px-12! py-6! bg-linear-to-r from-[#007078] to-[#005a61] text-white!">
+                <div class="flex flex-wrap items-center justify-between gap-4!">
+                    <div class="flex items-center gap-6!">
+                        <span class="bg-[#B78B1E] font-['Montserrat'] font-semibold text-xs! px-4! py-2! rounded-full uppercase tracking-wider shadow-md">
+                            {metadata.categoria}
+                        </span>
+                        <span class="font-['Montserrat'] font-medium! flex items-center gap-2!">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                            </svg>
+                            {metadata.fecha}
+                        </span>
+                    </div>
+                    <span class="font-['Montserrat'] font-medium">
+                        Por <strong>{metadata.autor}</strong>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Article Content -->
+            <div class="px-6! md:px-12! py-10!">
+                <p class="font-['Montserrat'] text-lg! font-medium! mb-6! leading-relaxed!">
+                    España se ha consolidado firmemente en la cúspide de la gastronomía mundial, no solo como cuna de la 
+                    vanguardia culinaria, sino como un destino donde la experiencia Michelin trasciende la mera degustación 
+                    para convertirse en un acto de alta cultura. La prestigiosa guía roja no hace sino certificar lo que ya se 
+                    percibe en cada rincón del país: una pasión innegable por el producto de calidad suprema, una técnica depurada 
+                    hasta el arte y una creatividad desbordante. Para el viajero gourmand de lujo, la constelación de estrellas españolas 
+                    representa una ruta sensorial que abarca desde la sofisticación urbana hasta los 
+                    santuarios rurales de la cocina de autor.
+                </p>
+                
+                <p class="font-['Montserrat'] text-lg! font-medium! mb-6! leading-relaxed!">
+                    La excelencia de esta cocina reside en un respeto inquebrantable por el terruño y el mar. 
+                    Los chefs condecorados actúan como custodios de la biodiversidad española, transformando ingredientes 
+                    sencillos —desde el pescado recién capturado en el Cantábrico hasta las verduras cultivadas en la 
+                    huerta mediterránea— en composiciones de complejidad y elegancia. La fusión de tradición y modernidad 
+                    es el hilo conductor: técnicas ancestrales se aplican con una precisión casi científica para desvelar nuevos sabores. 
+                    Este enfoque no solo honra la historia culinaria del país, sino que asegura que cada plato sea una declaración de intenciones y 
+                    una celebración del patrimonio gastronómico.
+                </p>
+                
+                <img 
+                    src="/michelin.jpg" 
+                    alt="Semana de la Moda en Madrid" 
+                    class="w-full! rounded-lg! shadow-xl! my-8! hover:shadow-2xl! transition-shadow! duration-300!"
+                />
+                
+                <p class="font-['Montserrat'] text-lg! font-medium! mb-6! leading-relaxed!">
+                    Las regiones clave de España, como el País Vasco, Cataluña, Madrid y Andalucía, compiten en un 
+                    diálogo silencioso de innovación y savoir-faire. Los templos de la alta cocina española no solo 
+                    ofrecen menús degustación; proponen una inmersión teatral donde la estética, el servicio y el ambiente 
+                    son tan meticulosamente coreografiados como los propios platos. Disfrutar de una experiencia de este calibre 
+                    es acceder a un servicio impecable, a una bodega curada con sabiduría y a un entorno diseñado para la máxima placidez y disfrute. 
+                    Es aquí donde el lujo se traduce en tiempo, atención y la memoria imborrable de un sabor único.
+                </p>
+                
+                <p class="font-['Montserrat'] text-lg! font-medium! mb-6! leading-relaxed!">
+                    En conclusión, la gastronomía Michelin en España es el billete de 
+                    ida a un viaje de placer y distinción. Es la confirmación de que la 
+                    excelencia culinaria española no es una moda, sino un legado que se redefine constantemente. 
+                    Invita al comensal a una exploración profunda de los sabores del país, presentada con una elegancia 
+                    que eleva el acto de comer a una forma de arte. Para el sibarita en busca de lo sublime, las estrellas 
+                    españolas brillan como un faro que 
+                    promete una experiencia inolvidable, rica en sofisticación y autenticidad ibérica.
+                </p>
+
+                <!-- Back to Blog Button -->
+                <div class="mt-12! pt-8! border-t border-[#E9E4E3]">
+                    <a 
+                        href="/blog"
+                        class="inline-flex items-center gap-2 bg-[#B78B1E] hover:bg-[#007078] text-white! font-['Montserrat'] font-semibold px-8! py-3! rounded-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg uppercase tracking-wider"
+                    >
+                        <svg class="w-5! h-5! rotate-180!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                        Volver al Blog
+                    </a>
+                </div>
+            </div>
+        </article>
+
+            <Newsletter />
+        
+        <article>
+            <!-- Comments Section -->
+            <div class="bg-[#f0f0f0] rounded-lg shadow-lg p-6! md:p-12! mb-8!">
+                <h2 class="font-['EB_Garamond'] text-4xl! font-bold text-[#007078] mb-6!">
+                    Comentarios
+                </h2>
+                
+                <!-- Comment Form -->
+                <div class="mb-10! bg-[url(/reception-bell.jpg)] bg-cover bg-center p-6! rounded-lg">
+                    <h3 class="font-['Montserrat'] text-3xl! font-semibold text-white! text-shadow-2xs mb-4!">
+                        Deja tu comentario
+                    </h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block font-['Montserrat'] font-medium text-gray-700 mb-2!">
+                                Nombre
+                            </label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                class="w-full px-4! py-2! border border-gray-300 rounded-md focus:ring-2 focus:ring-[#007078] focus:border-transparent bg-white/80 text-black! placeholder:text-gray-600"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="email" class="block font-['Montserrat'] font-medium text-gray-700 mb-2!">
+                                Email
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                class="w-full px-4! py-2! border border-gray-300 rounded-md focus:ring-2 focus:ring-[#007078] focus:border-transparent bg-white/80 text-black! placeholder:text-gray-600"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="comment" class="block font-['Montserrat'] font-medium text-gray-700 mb-2!">
+                                Comentario
+                            </label>
+                            <textarea 
+                                id="comment" 
+                                rows="4" 
+                                class="w-full px-4! py-2! border border-gray-300 rounded-md focus:ring-2 focus:ring-[#007078] focus:border-transparent bg-white/80 text-black! placeholder:text-gray-600"
+                                required
+                            ></textarea>
+                        </div>
+                        <button 
+                            type="submit"
+                            class="bg-[#B78B1E] hover:bg-[#007078] text-white font-['Montserrat'] font-semibold px-6 py-3 rounded-md transition-all duration-300 hover:shadow-lg"
+                        >
+                            Enviar Comentario
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Recent Comments -->
+                <div>
+                    <h4 class="font-['Montserrat'] text-xl! font-semibold text-[#007078] mb-6!">
+                        Últimos Comentarios
+                    </h4>
+                    <div id="comments-list" class="space-y-6!">
+                        <!-- Comments will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <script is:inline>
+                async function loadComments() {
+                    try {
+                        const response = await fetch('https://jsonplaceholder.typicode.com/comments');
+                        const comments = await response.json();
+                        const recentComments = comments.slice(0, 3);
+                        
+                        const commentsList = document.getElementById('comments-list');
+                        
+                        commentsList.innerHTML = recentComments.map(comment => `
+                            <div class="bg-[#F5F3F0] p-6! rounded-lg border-l-4 border-[#B78B1E]">
+                                <div class="flex items-start justify-between mb-3!">
+                                    <h5 class="font-['Montserrat'] font-semibold text-[#007078] text-lg!">
+                                        ${comment.name}
+                                    </h5>
+                                </div>
+                                <p class="font-['Montserrat'] text-sm text-gray-600 mb-3!">
+                                    ${comment.email}
+                                </p>
+                                <p class="font-['Montserrat'] text-gray-700 leading-relaxed">
+                                    ${comment.body}
+                                </p>
+                            </div>
+                        `).join('');
+                    } catch (error) {
+                        console.error('Error loading comments:', error);
+                        document.getElementById('comments-list').innerHTML = `
+                            <p class="font-['Montserrat'] text-gray-500 text-center py-8">
+                                No se pudieron cargar los comentarios.
+                            </p>
+                        `;
+                    }
+                }
+                
+                loadComments();
+            </script>
+        </article>    
+    </main>
+</Layout>

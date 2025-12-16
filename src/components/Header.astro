@@ -187,6 +187,7 @@
     @media (max-width: 768px) {
         header {
             padding: 0 1.5rem; /* Ajuste ligero de padding */
+            flex-direction: row-reverse !important; /* Invertir orden: hamburger a la izquierda, logo a la derecha */
         }
 
         /* Mostrar el botón hamburguesa */
@@ -216,10 +217,11 @@
             backdrop-filter: blur(15px);
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centrado vertical */
-            align-items: center; /* Centrado horizontal */
+            justify-content: center !important; /* Centrado vertical */
+            align-items: flex-start !important; /* Alineado a la izquierda */
+            padding-left: 3rem !important;
             transition: 0.4s ease-in-out; /* Animación suave de entrada */
-            text-align: center;
+            text-align: left !important;
         }
 
         .nav-menu.active {

@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+    <main class="max-w-[1400px]! mx-auto! px-[5%]! py-12!">
+        <h1 class="hidden!">Chalets Page</h1>
+        
+        <!-- Encabezado de sección -->
+        <div class="text-center! mb-12!">
+            <h2 class="text-4xl! font-serif! font-bold! text-[#007078]! mb-4!">Chalets Exclusivos</h2>
+            <p class="text-[#666666]! text-lg! max-w-2xl! mx-auto!">Alquilamos los alojamientos más exclusivos y lujosos de España</p>
+        </div>
+
+        <!-- Grid de tarjetas -->
+        <div class="grid! grid-cols-1! md:grid-cols-2! gap-8!">
+            
+            <!-- Tarjeta 1 -->
+            <div class="bg-white! rounded-xl! overflow-hidden! shadow-lg! hover:shadow-2xl! transition-all! duration-300! hover:-translate-y-2! flex! flex-col!">
+                <div class="h-64! overflow-hidden!">
+                    <img src="/chalet-marbella.jpg" alt="Villa Karina, Marbella" class="w-full! h-full! object-cover! transition-transform! duration-500! hover:scale-110!">
+                </div>
+                <div class="p-6! flex! flex-col! grow!">
+                    <h2 class="text-2xl! font-serif! font-bold! text-[#007078]! mb-3!">Villa Karina, Marbella</h2>
+                    <p class="text-[#666666]! mb-6! grow! leading-relaxed!">Bienvenido a Villa Karina, una magnífica villa de lujo de 5 dormitorios enclavada en el corazón de Nueva Andalucía, que ofrece la mezcla perfecta de elegancia, comodidad y ubicación privilegiada.</p>
+                    <a href="/contacto?reserva=true" class="bg-[#B78B1E]! text-white! py-3! px-8! rounded! font-semibold! uppercase! tracking-wide! hover:bg-[#007078]! transition-all! duration-300! hover:-translate-y-1! hover:shadow-lg! self-start! inline-block!">Reserva</a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="bg-white! rounded-xl! overflow-hidden! shadow-lg! hover:shadow-2xl! transition-all! duration-300! hover:-translate-y-2! flex! flex-col!">
+                <div class="h-64! overflow-hidden!">
+                    <img src="/chalet-ibiza.jpg" alt="Cala Moli, Ibiza" class="w-full! h-full! object-cover! transition-transform! duration-500! hover:scale-110!">
+                </div>
+                <div class="p-6! flex! flex-col! grow!">
+                    <h2 class="text-2xl! font-serif! font-bold! text-[#007078]! mb-3!">Cala Moli, Ibiza</h2>
+                    <p class="text-[#666666]! mb-6! grow! leading-relaxed!">La hermosa villa que ofrecemos aquí ofrece deliciosas vistas al reluciente mar Mediterráneo. Construida sobre una superficie de 412m2, la hermosa villa que ofrecemos aquí ofrece deliciosas vistas al campo y al reluciente mar Mediterráneo.</p>
+                    <a href="/contacto?reserva=true" class="bg-[#B78B1E]! text-white! py-3! px-8! rounded! font-semibold! uppercase! tracking-wide! hover:bg-[#007078]! transition-all! duration-300! hover:-translate-y-1! hover:shadow-lg! self-start! inline-block!">Reserva</a>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 3 -->
+            <div class="bg-white! rounded-xl! overflow-hidden! shadow-lg! hover:shadow-2xl! transition-all! duration-300! hover:-translate-y-2! flex! flex-col!">
+                <div class="h-64! overflow-hidden!">
+                    <img src="/chalet-sanxenxo.jpg" alt="Ático en Sanxenxo, Galicia" class="w-full! h-full! object-cover! transition-transform! duration-500! hover:scale-110!">
+                </div>
+                <div class="p-6! flex! flex-col! grow!">
+                    <h2 class="text-2xl! font-serif! font-bold! text-[#007078]! mb-3!">Ático en Sanxenxo, Galicia</h2>
+                    <p class="text-[#666666]! mb-6! grow! leading-relaxed!">En la costa gallega entre la ciudad de Pontevedra y Sanxenxo, encontramos este espectacular ático reformado con impresionantes vistas. Las vistas desde estas áreas interiores y exteriores son impresionantes.</p>
+                    <a href="/contacto?reserva=true" class="bg-[#B78B1E]! text-white! py-3! px-8! rounded! font-semibold! uppercase! tracking-wide! hover:bg-[#007078]! transition-all! duration-300! hover:-translate-y-1! hover:shadow-lg! self-start! inline-block!">Reserva</a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="bg-white! rounded-xl! overflow-hidden! shadow-lg! hover:shadow-2xl! transition-all! duration-300! hover:-translate-y-2! flex! flex-col!">
+                <div class="h-64! overflow-hidden!">
+                    <img src="/chalet-gerona.jpg" alt="Castillo en Girona, Cataluña" class="w-full! h-full! object-cover! transition-transform! duration-500! hover:scale-110!">
+                </div>
+                <div class="p-6! flex! flex-col! grow!">
+                    <h2 class="text-2xl! font-serif! font-bold! text-[#007078]! mb-3!">Castillo en Girona, Cataluña</h2>
+                    <p class="text-[#666666]! mb-6! grow! leading-relaxed!">Majestuoso y emblemático castillo medieval, coronando la cima de un encantador pueblo pintoresco, con una historia que se remonta a los siglos XII y XIII, y enriquecido con renovaciones sucesivas en los siglos XVI y XVIII. A tan solo 20 minutos de la costa.</p>
+                    <a href="/contacto?reserva=true" class="bg-[#B78B1E]! text-white! py-3! px-8! rounded! font-semibold! uppercase! tracking-wide! hover:bg-[#007078]! transition-all! duration-300! hover:-translate-y-1! hover:shadow-lg! self-start! inline-block!">Reserva</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</Layout>

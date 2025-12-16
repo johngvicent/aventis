@@ -102,7 +102,7 @@ const StoreContainer = ({ children }) => {
 
       {/* Renderiza solo el ícono del Carrito dentro del header usando Portal */}
       {headerElement && createPortal(
-        <a href="/carrito" className="ml-auto flex items-center z-[1001] relative cursor-pointer group">
+        <a href="/carrito" className="ml-auto flex items-center z-1001 relative cursor-pointer group">
           <svg 
             className="w-8 h-8 text-[#e7e7e7] group-hover:text-[#B78B1E] transition-colors duration-300" 
             fill="none" 

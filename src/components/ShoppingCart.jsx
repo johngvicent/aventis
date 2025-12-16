@@ -37,7 +37,7 @@ const ShoppingCart = ({ itemCount, addItem, removeItem }) => {
         >
           −
         </button>
-        <span className="text-[#e7e7e7] font-semibold text-sm min-w-[2rem] text-center">{itemCount}</span>
+        <span className="text-[#e7e7e7] font-semibold text-sm min-w-8 text-center">{itemCount}</span>
         <button 
           onClick={addItem}
           className="bg-green-500/90 hover:bg-green-600 text-white font-bold w-6 h-6 rounded-full transition duration-150 text-sm flex items-center justify-center"

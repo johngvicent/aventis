@@ -1,0 +1,234 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Newsletter from '../../components/Newsletter.astro';
+
+const metadata = {
+    categoria: 'Viajes',
+    fecha: '4 de Diciembre, 2025',
+    autor: 'John Vicent'
+};
+---
+
+<Layout>
+    <main class="max-w-5xl! mx-auto! px-6! py-12!">
+        <article class=" rounded-lg overflow-hidden shadow-lg mb-16!">
+            <!-- Hero Image -->
+            <div class="relative h-96! bg-[url(/luxury-train.jpg)] bg-cover bg-center flex flex-col justify-center items-center text-center  overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-black/30 before:z-0">
+                <div class="relative z-10 px-6 md:px-12">
+                    <h1 class="font-['EB_Garamond'] text-5xl! md:text-7xl! text-white! font-bold! tracking-wide mb-4! drop-shadow-lg!">
+                        El Tren Transcantábrico
+                    </h1>
+                    <h2 class="font-['EB_Garamond'] text-2xl! md:text-3xl! text-white!  font-semibold tracking-wide drop-shadow-md">
+                        Una aventura de lujo a través del norte de España
+                    </h2>
+                </div>
+            </div>
+
+            <!-- Metadata Section -->
+            <div class="px-6! md:px-12! py-6! bg-linear-to-r from-[#007078] to-[#005a61] text-white!">
+                <div class="flex flex-wrap items-center justify-between gap-4!">
+                    <div class="flex items-center gap-6!">
+                        <span class="bg-[#B78B1E] font-['Montserrat'] font-semibold text-xs! px-4! py-2! rounded-full uppercase tracking-wider shadow-md">
+                            {metadata.categoria}
+                        </span>
+                        <span class="font-['Montserrat'] font-medium! flex items-center gap-2!">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                            </svg>
+                            {metadata.fecha}
+                        </span>
+                    </div>
+                    <span class="font-['Montserrat'] font-medium">
+                        Por <strong>{metadata.autor}</strong>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Article Content -->
+            <div class="px-6! md:px-12! py-10!">
+                <p class="font-['Montserrat'] text-lg! font-medium! mb-6! leading-relaxed!">
+                    Si está buscando una forma
+                    diferente de explorar el norte
+                    de España, el Transcantábrico
+                    es una excelente opción. Este
+                    tren de lujo ofrece un viaje
+                    inolvidable a través de algunos
+                    de los paisajes más bellos
+                    del norte del país, con todas
+                    las comodidades y servicios
+                    que pueda desear. El Tren Transcantábrico
+                    fue inaugurado en 1983 y desde
+                    entonces se ha convertido
+                    en uno de los trenes turísticos
+                    más populares de España.
+                    
+                </p>
+                
+                <p class="font-['Montserrat'] text-lg! font-medium! mb-6! leading-relaxed!">
+                    Originalmente, el tren se utilizaba
+                    para transportar mercancías
+                    y pasajeros entre las ciudades
+                    de Santander y Santiago
+                    de Compostela. Sin embargo,
+                    en la década de 1990, el tren fue
+                    convertido en un tren de lujo. 
+                    A bordo del tren, los pasajeros
+                    pueden disfrutar de una amplia
+                    gama de servicios, que incluyen
+                    alojamiento de lujo, comidas
+                    gourmet, bares, salones
+                    y biblioteca. El tren también
+                    cuenta con un equipo de guías
+                    que ofrecen excursiones
+                    y actividades para los pasajeros.
+                </p>
+                
+                
+                <img 
+                    src="/destinos-tren-transcantabrico.jpg" 
+                    alt="Tren Transcantábrico" 
+                    class="w-full! rounded-lg! shadow-xl! my-8! hover:shadow-2xl! transition-shadow! duration-300!"
+                />
+                
+                <p class="font-['Montserrat'] text-lg! font-medium! mb-6! leading-relaxed!">
+                    Los camarotes
+                    del Transcantábrico están
+                    equipados con todas
+                    las comodidades necesarias
+                    para una estancia confortable.
+                    Los camarotes de lujo cuentan
+                    con camas dobles, baño privado,
+                    ducha de hidromasaje y sala
+                    de estar. Los camarotes estándar
+                    también son muy cómodos ,
+                    especiales, equipados y cuentan
+                    con camas individuales o dobles
+                    y baño privado.
+                </p>
+                
+                <p class="font-['Montserrat'] text-lg! font-medium! mb-6! leading-relaxed!">
+                    Comodidad, glamour, gastronomía, cultura, descanso, lujo y diversión; esas son las características que mejor describen al tren Transcantábrico. En 2026, ocho días de viaje por el País Vasco, Cantabria, Asturias y Galicia. Descubriendo ciudades y lugares espectaculares por el norte de España, desde San Sebastián a Santiago de Compostela y desde Santiago de Compostela a San Sebastián, también ofrece, dos itinerarios de 4 días desde Oviedo a San Sebastián y Santiago hasta Gijón.
+                </p>
+
+                <!-- Back to Blog Button -->
+                <div class="mt-12! pt-8! border-t border-[#E9E4E3]">
+                    <a 
+                        href="/blog"
+                        class="inline-flex items-center gap-2 bg-[#B78B1E] hover:bg-[#007078] text-white! font-['Montserrat'] font-semibold px-8! py-3! rounded-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg uppercase tracking-wider"
+                    >
+                        <svg class="w-5! h-5! rotate-180!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                        Volver al Blog
+                    </a>
+                </div>
+            </div>
+        </article>
+
+            <Newsletter />
+            
+        <article>
+            <!-- Comments Section -->
+            <div class="bg-[#f0f0f0] rounded-lg shadow-lg p-6! md:p-12! mb-8!">
+                <h2 class="font-['EB_Garamond'] text-4xl! font-bold text-[#007078] mb-6!">
+                    Comentarios
+                </h2>
+                
+                <!-- Comment Form -->
+                <div class="mb-10! bg-[url(/reception-bell.jpg)] bg-cover bg-center p-6! rounded-lg">
+                    <h3 class="font-['Montserrat'] text-3xl! font-semibold text-white! text-shadow-2xs mb-4!">
+                        Deja tu comentario
+                    </h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block font-['Montserrat'] font-medium text-gray-700 mb-2!">
+                                Nombre
+                            </label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                class="w-full px-4! py-2! border border-gray-300 rounded-md focus:ring-2 focus:ring-[#007078] focus:border-transparent bg-white/80 text-black! placeholder:text-gray-600"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="email" class="block font-['Montserrat'] font-medium text-gray-700 mb-2!">
+                                Email
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                class="w-full px-4! py-2! border border-gray-300 rounded-md focus:ring-2 focus:ring-[#007078] focus:border-transparent bg-white/80 text-black! placeholder:text-gray-600"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="comment" class="block font-['Montserrat'] font-medium text-gray-700 mb-2!">
+                                Comentario
+                            </label>
+                            <textarea 
+                                id="comment" 
+                                rows="4" 
+                                class="w-full px-4! py-2! border border-gray-300 rounded-md focus:ring-2 focus:ring-[#007078] focus:border-transparent bg-white/80 text-black! placeholder:text-gray-600"
+                                required
+                            ></textarea>
+                        </div>
+                        <button 
+                            type="submit"
+                            class="bg-[#B78B1E] hover:bg-[#007078] text-white font-['Montserrat'] font-semibold px-6 py-3 rounded-md transition-all duration-300 hover:shadow-lg"
+                        >
+                            Enviar Comentario
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Recent Comments -->
+                <div>
+                    <h4 class="font-['Montserrat'] text-xl! font-semibold text-[#007078] mb-6!">
+                        Últimos Comentarios
+                    </h4>
+                    <div id="comments-list" class="space-y-6!">
+                        <!-- Comments will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <script is:inline>
+                async function loadComments() {
+                    try {
+                        const response = await fetch('https://jsonplaceholder.typicode.com/comments');
+                        const comments = await response.json();
+                        const recentComments = comments.slice(0, 3);
+                        
+                        const commentsList = document.getElementById('comments-list');
+                        
+                        commentsList.innerHTML = recentComments.map(comment => `
+                            <div class="bg-[#F5F3F0] p-6! rounded-lg border-l-4 border-[#B78B1E]">
+                                <div class="flex items-start justify-between mb-3!">
+                                    <h5 class="font-['Montserrat'] font-semibold text-[#007078] text-lg!">
+                                        ${comment.name}
+                                    </h5>
+                                </div>
+                                <p class="font-['Montserrat'] text-sm text-gray-600 mb-3!">
+                                    ${comment.email}
+                                </p>
+                                <p class="font-['Montserrat'] text-gray-700 leading-relaxed">
+                                    ${comment.body}
+                                </p>
+                            </div>
+                        `).join('');
+                    } catch (error) {
+                        console.error('Error loading comments:', error);
+                        document.getElementById('comments-list').innerHTML = `
+                            <p class="font-['Montserrat'] text-gray-500 text-center py-8">
+                                No se pudieron cargar los comentarios.
+                            </p>
+                        `;
+                    }
+                }
+                
+                loadComments();
+            </script>
+        </article>
+    </main>
+</Layout>
