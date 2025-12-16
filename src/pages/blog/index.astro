@@ -2,217 +2,319 @@
 import Layout from '../../layouts/Layout.astro';
 import Newsletter from '../../components/Newsletter.astro';
 
-// Datos de ejemplo para los posts del blog
-const posts = [
+// Datos de los artículos del blog
+const articulos = [
     {
-        id: 1,
-        titulo: 'Descubre los Pirineos en Primavera',
-        subtitulo: 'Una aventura entre montañas y valles verdes',
-        imagen: '/newsletter-pirineos.jpg',
+        slug: 'four-seasons-madrid',
+        titulo: 'Four Seasons Hotel Madrid',
+        subtitulo: 'Redefiniendo el Lujo en la Capital Española',
         categoria: 'Viajes',
-        fecha: '15 de Noviembre, 2024',
-        descripcion: 'Explora los paisajes más impresionantes de los Pirineos durante la primavera, cuando la naturaleza despierta con todo su esplendor.',
-        autor: 'María González'
+        fecha: '16 de Diciembre, 2025',
+        autor: 'John Vicent',
+        imagen: '/lobby-elegante.jpg',
+        extracto: 'El Four Seasons Hotel Madrid no es simplemente un lugar de hospedaje; es una experiencia de lujo incomparable que redefine la hospitalidad en el corazón de España.',
+        destacado: true
     },
     {
-        id: 2,
-        titulo: 'Guía Completa para Viajar a Japón',
-        subtitulo: 'Todo lo que necesitas saber antes de tu viaje',
-        imagen: '/newsletter-pirineos.jpg',
+        slug: 'costa-del-sol',
+        titulo: 'La Costa del Sol',
+        subtitulo: 'A Través del Prisma del Lujo',
+        categoria: 'Viajes',
+        fecha: '14 de Diciembre, 2025',
+        autor: 'John Vicent',
+        imagen: '/costadelsol.jpg',
+        extracto: 'La Costa del Sol, un lienzo de luz y mar en la vibrante Andalucía, ofrece experiencias exclusivas para el viajero más exigente.',
+        destacado: false
+    },
+    {
+        slug: 'estrella-michelin',
+        titulo: 'España con Estrella MICHELIN',
+        subtitulo: 'Los Templos de la Gastronomía Ibérica',
         categoria: 'Tendencias',
-        fecha: '10 de Noviembre, 2024',
-        descripcion: 'Desde la mejor época para visitar hasta consejos culturales esenciales para aprovechar al máximo tu experiencia en Japón.',
-        autor: 'Carlos Martínez'
+        fecha: '14 de Diciembre, 2025',
+        autor: 'John Vicent',
+        imagen: '/destinos-san-sebastian.jpg',
+        extracto: 'España se ha consolidado firmemente en la cúspide de la gastronomía mundial, con restaurantes que deleitan a los paladares más exigentes.',
+        destacado: false
     },
     {
-        id: 3,
-        titulo: 'Los Mejores Destinos de Playa en 2024',
-        subtitulo: 'Paraísos tropicales que no te puedes perder',
-        imagen: '/newsletter-pirineos.jpg',
-        categoria: 'Viajes',
-        fecha: '5 de Noviembre, 2024',
-        descripcion: 'Descubre las playas más espectaculares del mundo, desde aguas cristalinas hasta arenas blancas que te dejarán sin aliento.',
-        autor: 'Laura Sánchez'
-    },
-    {
-        id: 4,
-        titulo: 'Eventos de Aventura 2024',
-        subtitulo: 'Experiencias extremas alrededor del mundo',
-        imagen: '/newsletter-pirineos.jpg',
+        slug: 'semana-moda-madrid',
+        titulo: 'La Semana de la Moda',
+        subtitulo: 'Madrid 2026',
         categoria: 'Eventos',
-        fecha: '1 de Noviembre, 2024',
-        descripcion: 'Una selección de los eventos más emocionantes para los amantes de la aventura y los deportes extremos.',
-        autor: 'Javier Ruiz'
+        fecha: '14 de Diciembre, 2025',
+        autor: 'John Vicent',
+        imagen: '/eventos-semana-moda-madrid.jpg',
+        extracto: 'La Mercedes-Benz Fashion Week Madrid se erige como el escaparate cumbre del talento español y la alta costura internacional.',
+        destacado: false
     },
     {
-        id: 5,
-        titulo: 'Viajes Sostenibles: El Futuro del Turismo',
-        subtitulo: 'Cómo viajar respetando el medio ambiente',
-        imagen: '/newsletter-pirineos.jpg',
+        slug: 'accesorios-imprescinibles',
+        titulo: 'Accesorios Imprescindibles',
+        subtitulo: 'Te Recomendamos las Tendencias Actuales',
         categoria: 'Tendencias',
-        fecha: '28 de Octubre, 2024',
-        descripcion: 'Aprende cómo hacer que tus viajes sean más sostenibles y responsables con el planeta sin renunciar a la aventura.',
-        autor: 'Ana Torres'
+        fecha: '14 de Diciembre, 2025',
+        autor: 'John Vicent',
+        imagen: '/accesorios-blog.jpg',
+        extracto: 'Viajar con estilo es un arte, y para el viajero de lujo, la experiencia comienza mucho antes de llegar al destino.',
+        destacado: false
     },
     {
-        id: 6,
-        titulo: 'Nosotros: Nuestra Historia',
-        subtitulo: 'Conoce quiénes somos y qué nos inspira',
-        imagen: '/newsletter-pirineos.jpg',
+        slug: 'viajes-transcantabrico',
+        titulo: 'El Tren Transcantábrico',
+        subtitulo: 'Una aventura de lujo a través del norte de España',
+        categoria: 'Viajes',
+        fecha: '4 de Diciembre, 2025',
+        autor: 'John Vicent',
+        imagen: '/luxury-train.jpg',
+        extracto: 'Si está buscando una forma diferente de explorar el norte de España, el Transcantábrico es una excelente opción de lujo.',
+        destacado: false
+    },
+    {
+        slug: 'agencia-aventis',
+        titulo: 'Agencia Aventis',
+        subtitulo: 'Experiencias Inolvidables en Nuestra Península Ibérica',
         categoria: 'Nosotros',
-        fecha: '20 de Octubre, 2024',
-        descripcion: 'Descubre la historia detrás de Aventis y nuestra pasión por crear experiencias de viaje inolvidables.',
-        autor: 'Equipo Aventis'
+        fecha: '4 de Diciembre, 2025',
+        autor: 'John Vicent',
+        imagen: '/carrusel-camino.jpg',
+        extracto: 'En el mundo de los viajes, donde la exclusividad y la personalización son cada vez más valoradas, Aventis destaca por su excelencia.',
+        destacado: false
     }
 ];
 
-const categorias = ['Todos', 'Nosotros', 'Viajes', 'Eventos', 'Tendencias'];
+const articuloDestacado = articulos.find(a => a.destacado);
+const otrosArticulos = articulos.filter(a => !a.destacado);
+const categorias = [...new Set(articulos.map(a => a.categoria))];
 ---
 
 <Layout>
-    <!-- Hero Section -->
-    <div class="mb-16">
-        <h1 class="font-['EB_Garamond'] text-5xl md:text-6xl font-semibold text-[#007078] mb-4 leading-tight">
-            Bitácora de Viajes
-        </h1>
-        <p class="font-['Montserrat'] text-lg text-[#666666] font-medium max-w-3xl">
-            Explora historias inspiradoras, destinos fascinantes y consejos de expertos para tu próxima aventura.
-        </p>
-    </div>
+    <main class="max-w-7xl! mx-auto! px-4! sm:px-6! lg:px-8! py-12!">
+        
+        <!-- Hero Section -->
+        <section class="text-center! mb-16! animate-[fadeIn_0.6s_ease-out]!">
+            <span class="inline-block! bg-[#B78B1E] text-white! font-['Montserrat']! font-semibold! text-xs! px-4! py-2! rounded-full! uppercase! tracking-widest! mb-6! shadow-md!">
+                Blog de Viajes
+            </span>
+            <h1 class="font-['EB_Garamond']! text-4xl! sm:text-5xl! md:text-6xl! lg:text-7xl! text-[#007078]! font-bold! tracking-wide! mb-6! leading-tight!">
+                Inspiración para <br class="hidden! sm:block!" />Viajeros Exigentes
+            </h1>
+            <p class="font-['Montserrat']! text-lg! md:text-xl! text-[#666666]! max-w-3xl! mx-auto! leading-relaxed! font-medium!">
+                Descubre destinos exclusivos, tendencias de lujo y experiencias únicas que transformarán tu manera de viajar por el mundo.
+            </p>
+        </section>
 
-    <!-- Filtros de Categorías -->
-    <div class="mb-12 border-b-2 border-[#E9E4E3]">
-        <ul class="flex flex-wrap gap-2 md:gap-6 pb-4" id="categorias-filter">
-            {categorias.map((categoria, index) => (
-                <li>
-                    <button 
-                        class={`categoria-btn font-['Montserrat'] font-semibold text-base px-6 py-2 rounded-md transition-all duration-300 ${
-                            index === 0 
-                                ? 'bg-[#B78B1E] text-white shadow-md' 
-                                : 'text-[#666666] hover:text-[#007078] hover:bg-[#E9E4E3]'
-                        }`}
-                        data-categoria={categoria}
-                    >
-                        {categoria}
+        <!-- Categorías Filter -->
+        <section class="mb-12! animate-[fadeIn_0.6s_ease-out]!">
+            <div class="flex! flex-wrap! justify-center! gap-3! md:gap-4!">
+                <button class="categoria-btn activa font-['Montserrat']! text-sm! font-semibold! px-5! py-2.5! rounded-full! border-2! border-[#007078]! bg-[#007078]! text-white! transition-all! duration-300! hover:shadow-lg! hover:-translate-y-0.5!" data-categoria="todas">
+                    Todas
+                </button>
+                {categorias.map(cat => (
+                    <button class="categoria-btn font-['Montserrat']! text-sm! font-semibold! px-5! py-2.5! rounded-full! border-2! border-[#007078]! bg-transparent! text-[#007078]! transition-all! duration-300! hover:bg-[#007078]! hover:text-white! hover:shadow-lg! hover:-translate-y-0.5!" data-categoria={cat}>
+                        {cat}
                     </button>
-                </li>
-            ))}
-        </ul>
-    </div>
+                ))}
+            </div>
+        </section>
 
-    <!-- Grid de Posts -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16" id="posts-grid">
-        {posts.map((post) => (
-            <article 
-                class="post-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group"
-                data-categoria={post.categoria}
-            >
-                <!-- Imagen -->
-                <div class="relative overflow-hidden h-64">
-                    <img 
-                        src={post.imagen} 
-                        alt={post.titulo}
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div class="absolute top-4 left-4">
-                        <span class="bg-[#B78B1E] text-white font-['Montserrat'] font-semibold text-xs px-4 py-2 rounded-full uppercase tracking-wider shadow-md">
-                            {post.categoria}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Contenido -->
-                <div class="p-6">
-                    <!-- Fecha y Autor -->
-                    <div class="flex items-center gap-4 text-sm text-[#666666] font-['Montserrat'] font-medium mb-3">
-                        <span class="flex items-center gap-1">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
-                            </svg>
-                            {post.fecha}
-                        </span>
-                    </div>
-
-                    <!-- Título -->
-                    <h2 class="font-['EB_Garamond'] text-2xl font-semibold text-[#007078] mb-2 group-hover:text-[#B78B1E] transition-colors duration-300">
-                        {post.titulo}
-                    </h2>
-
-                    <!-- Subtítulo -->
-                    <h3 class="font-['EB_Garamond'] text-lg text-[#333333] mb-3 font-normal">
-                        {post.subtitulo}
-                    </h3>
-
-                    <!-- Descripción -->
-                    <p class="font-['Montserrat'] text-[#666666] font-medium mb-4 line-clamp-3 leading-relaxed">
-                        {post.descripcion}
-                    </p>
-
-                    <!-- Autor y Leer más -->
-                    <div class="flex items-center justify-between pt-4 border-t border-[#E9E4E3]">
-                        <span class="text-sm text-[#666666] font-['Montserrat'] font-medium">
-                            Por {post.autor}
-                        </span>
-                        <a 
-                            href={`/blog/${post.id}`}
-                            class="text-[#B78B1E] hover:text-[#007078] font-['Montserrat'] font-semibold text-sm uppercase tracking-wider transition-colors duration-300 flex items-center gap-1"
-                        >
-                            Leer más
-                            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </article>
-        ))}
-    </div>
-    <Newsletter />
-    <!-- Script para filtros interactivos -->
-    <script is:inline>
-        document.addEventListener('DOMContentLoaded', () => {
-            const categoriaBtns = document.querySelectorAll('.categoria-btn');
-            const postCards = document.querySelectorAll('.post-card');
-
-            categoriaBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const categoriaSeleccionada = btn.getAttribute('data-categoria');
-
-                    // Actualizar estilos de botones
-                    categoriaBtns.forEach(b => {
-                        b.classList.remove('bg-[#B78B1E]', 'text-white', 'shadow-md');
-                        b.classList.add('text-[#666666]', 'hover:text-[#007078]', 'hover:bg-[#E9E4E3]');
-                    });
-                    btn.classList.add('bg-[#B78B1E]', 'text-white', 'shadow-md');
-                    btn.classList.remove('text-[#666666]', 'hover:text-[#007078]', 'hover:bg-[#E9E4E3]');
-
-                    // Filtrar posts con animación
-                    postCards.forEach(card => {
-                        const cardCategoria = card.getAttribute('data-categoria');
+        <!-- Artículo Destacado -->
+        {articuloDestacado && (
+            <section class="mb-16! animate-[fadeIn_0.6s_ease-out]!">
+                <a href={`/blog/${articuloDestacado.slug}`} class="group! block! relative! overflow-hidden! rounded-2xl! shadow-2xl! transition-all! duration-500! hover:shadow-3xl! hover:-translate-y-2!">
+                    <div class="relative! h-[500px]! md:h-[600px]! overflow-hidden!">
+                        <img 
+                            src={articuloDestacado.imagen} 
+                            alt={articuloDestacado.titulo}
+                            class="w-full! h-full! object-cover! transition-transform! duration-700! group-hover:scale-105!"
+                        />
+                        <div class="absolute! inset-0! bg-gradient-to-t! from-black/80! via-black/40! to-transparent!"></div>
                         
-                        if (categoriaSeleccionada === 'Todos' || cardCategoria === categoriaSeleccionada) {
-                            card.style.display = 'block';
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'translateY(0)';
-                            }, 10);
-                        } else {
-                            card.style.opacity = '0';
-                            card.style.transform = 'translateY(20px)';
-                            setTimeout(() => {
-                                card.style.display = 'none';
-                            }, 300);
-                        }
-                    });
+                        <!-- Badge Destacado -->
+                        <div class="absolute! top-6! left-6! flex! items-center! gap-3!">
+                            <span class="bg-[#B78B1E]! text-white! font-['Montserrat']! font-bold! text-xs! px-4! py-2! rounded-full! uppercase! tracking-wider! shadow-lg!">
+                                ★ Destacado
+                            </span>
+                            <span class="bg-white/20! backdrop-blur-sm! text-white! font-['Montserrat']! font-semibold! text-xs! px-4! py-2! rounded-full! uppercase! tracking-wider!">
+                                {articuloDestacado.categoria}
+                            </span>
+                        </div>
+                        
+                        <!-- Contenido -->
+                        <div class="absolute! bottom-0! left-0! right-0! p-8! md:p-12!">
+                            <h2 class="font-['EB_Garamond']! text-3xl! sm:text-4xl! md:text-5xl! lg:text-6xl! text-white! font-bold! mb-3! leading-tight! drop-shadow-lg!">
+                                {articuloDestacado.titulo}
+                            </h2>
+                            <h3 class="font-['EB_Garamond']! text-xl! md:text-2xl! text-[#E9E4E3]! font-medium! mb-6! drop-shadow-md!">
+                                {articuloDestacado.subtitulo}
+                            </h3>
+                            <p class="font-['Montserrat']! text-base! md:text-lg! text-white/90! max-w-2xl! mb-6! leading-relaxed! hidden! sm:block!">
+                                {articuloDestacado.extracto}
+                            </p>
+                            <div class="flex! flex-wrap! items-center! gap-4! md:gap-6! text-white/80!">
+                                <span class="font-['Montserrat']! text-sm! flex! items-center! gap-2!">
+                                    <svg class="w-4! h-4!" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                    </svg>
+                                    {articuloDestacado.fecha}
+                                </span>
+                                <span class="font-['Montserrat']! text-sm! flex! items-center! gap-2!">
+                                    <svg class="w-4! h-4!" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                                    </svg>
+                                    {articuloDestacado.autor}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </section>
+        )}
+
+        <!-- Grid de Artículos -->
+        <section class="mb-16!">
+            <div id="articulos-grid" class="grid! grid-cols-1! md:grid-cols-2! lg:grid-cols-3! gap-8!">
+                {otrosArticulos.map((articulo, index) => (
+                    <article 
+                        class="articulo-card group! bg-[#f0f0f0]! rounded-xl! overflow-hidden! shadow-lg! transition-all! duration-500! hover:shadow-2xl! hover:-translate-y-3! animate-[fadeIn_0.6s_ease-out]!"
+                        data-categoria={articulo.categoria}
+                        style={`animation-delay: ${index * 0.1}s`}
+                    >
+                        <a href={`/blog/${articulo.slug}`} class="block!">
+                            <!-- Imagen -->
+                            <div class="relative! h-56! overflow-hidden!">
+                                <img 
+                                    src={articulo.imagen} 
+                                    alt={articulo.titulo}
+                                    class="w-full! h-full! object-cover! transition-transform! duration-700! group-hover:scale-110!"
+                                />
+                                <div class="absolute! inset-0! bg-gradient-to-t! from-black/50! to-transparent! opacity-0! group-hover:opacity-100! transition-opacity! duration-300!"></div>
+                                
+                                <!-- Categoría Badge -->
+                                <span class="absolute! top-4! left-4! bg-[#B78B1E]! text-white! font-['Montserrat']! font-semibold! text-xs! px-3! py-1.5! rounded-full! uppercase! tracking-wider! shadow-md!">
+                                    {articulo.categoria}
+                                </span>
+                            </div>
+                            
+                            <!-- Contenido -->
+                            <div class="p-6!">
+                                <h3 class="font-['EB_Garamond']! text-2xl! text-[#007078]! font-bold! mb-2! leading-tight! group-hover:text-[#B78B1E]! transition-colors! duration-300!">
+                                    {articulo.titulo}
+                                </h3>
+                                <h4 class="font-['EB_Garamond']! text-lg! text-[#666666]! font-medium! mb-4!">
+                                    {articulo.subtitulo}
+                                </h4>
+                                <p class="font-['Montserrat']! text-sm! text-[#333333]! mb-5! leading-relaxed! line-clamp-3!">
+                                    {articulo.extracto}
+                                </p>
+                                
+                                <!-- Meta Info -->
+                                <div class="flex! items-center! justify-between! pt-4! border-t! border-[#E9E4E3]!">
+                                    <div class="flex! items-center! gap-3! text-[#666666]!">
+                                        <span class="font-['Montserrat']! text-xs! flex! items-center! gap-1.5!">
+                                            <svg class="w-3.5! h-3.5!" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                            </svg>
+                                            {articulo.fecha}
+                                        </span>
+                                    </div>
+                                    <span class="font-['Montserrat']! text-xs! text-[#007078]! font-semibold! flex! items-center! gap-1! group-hover:gap-2! transition-all! duration-300!">
+                                        Leer más
+                                        <svg class="w-4! h-4!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                ))}
+            </div>
+        </section>
+
+        <!-- Sección de Newsletter -->
+        <Newsletter />
+
+        <!-- CTA Section -->
+        <section class="mt-16! text-center! bg-gradient-to-r! from-[#007078]! to-[#005a61]! rounded-2xl! p-10! md:p-16! shadow-2xl! animate-[fadeIn_0.6s_ease-out]!">
+            <h2 class="font-['EB_Garamond']! text-3xl! md:text-4xl! lg:text-5xl! text-white! font-bold! mb-4!">
+                ¿Listo para tu próxima aventura?
+            </h2>
+            <p class="font-['Montserrat']! text-lg! text-[#E9E4E3]! max-w-2xl! mx-auto! mb-8! leading-relaxed!">
+                Permítenos diseñar el viaje de tus sueños. Nuestros expertos crean experiencias personalizadas que superan todas las expectativas.
+            </p>
+            <a 
+                href="/contacto"
+                class="inline-flex! items-center! gap-3! bg-[#B78B1E]! hover:bg-white! text-white! hover:text-[#007078]! font-['Montserrat']! font-bold! px-10! py-4! rounded-full! transition-all! duration-300! hover:shadow-xl! hover:-translate-y-1! uppercase! tracking-wider! text-sm!"
+            >
+                Contactar Ahora
+                <svg class="w-5! h-5!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+            </a>
+        </section>
+    </main>
+</Layout>
+
+<script is:inline>
+    // Filtrado por categorías
+    document.addEventListener('DOMContentLoaded', () => {
+        const botonesCategorias = document.querySelectorAll('.categoria-btn');
+        const tarjetasArticulos = document.querySelectorAll('.articulo-card');
+        
+        botonesCategorias.forEach(boton => {
+            boton.addEventListener('click', () => {
+                // Actualizar estado activo de botones
+                botonesCategorias.forEach(b => {
+                    b.classList.remove('bg-[#007078]!', 'text-white!');
+                    b.classList.add('bg-transparent!', 'text-[#007078]!');
+                });
+                boton.classList.remove('bg-transparent!', 'text-[#007078]!');
+                boton.classList.add('bg-[#007078]!', 'text-white!');
+                
+                const categoriaSeleccionada = boton.dataset.categoria;
+                
+                // Filtrar tarjetas
+                tarjetasArticulos.forEach(tarjeta => {
+                    if (categoriaSeleccionada === 'todas' || tarjeta.dataset.categoria === categoriaSeleccionada) {
+                        tarjeta.style.display = 'block';
+                        tarjeta.style.animation = 'fadeIn 0.5s ease-out';
+                    } else {
+                        tarjeta.style.display = 'none';
+                    }
                 });
             });
-
-            // Inicializar opacidad y transición
-            postCards.forEach(card => {
-                card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-            });
         });
-    </script>
-</Layout>
+    });
+</script>
+
+<style>
+    /* Animación fadeIn */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Line clamp para el extracto */
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    /* Smooth scroll */
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+
+
 
 
