@@ -4,61 +4,101 @@ import Store from '../layouts/Store.astro';
 
 <Store>
 
-    <main class="max-w-[1400px] mx-auto px-[5%] pt-32 pb-12 min-h-screen">
-        <div class="mb-12 text-center">
-            <h1 class="font-serif font-semibold text-5xl text-[#007078] mb-4">Mi Carrito de Compras</h1>
-            <p class="text-[#666666] font-medium text-lg max-w-3xl mx-auto">Revisa los productos que has seleccionado y completa tu compra.</p>
+    <main class="max-w-[1400px]! mx-auto! px-[5%]! pt-32! pb-12! min-h-screen!">
+        <!-- Hero Section -->
+        <div class="mb-12! text-center! animate-[fadeIn_0.6s_ease-out]!">
+            <span class="inline-block! bg-[#B78B1E]! text-white! font-['Montserrat']! font-semibold! text-xs! px-4! py-2! rounded-full! uppercase! tracking-widest! mb-6! shadow-md!">
+                Tu Selección
+            </span>
+            <h1 class="font-['EB_Garamond']! text-4xl! sm:text-5xl! md:text-6xl! text-[#007078]! font-bold! tracking-wide! mb-4!">
+                Mi Carrito de Compras
+            </h1>
+            <p class="font-['Montserrat']! text-lg! text-[#666666]! max-w-3xl! mx-auto! font-medium! leading-relaxed!">
+                Revisa los productos exclusivos que has seleccionado y completa tu experiencia de compra.
+            </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="grid! grid-cols-1! lg:grid-cols-3! gap-8!">
             <!-- Lista de productos -->
-            <div class="lg:col-span-2 space-y-4" id="carrito-items">
-                <!-- Los productos se añadirán dinámicamente aquí -->
-                <div id="carrito-vacio" class="bg-white rounded-lg shadow-md p-12 text-center">
-                    <svg class="w-24 h-24 mx-auto mb-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                    </svg>
-                    <h2 class="font-serif text-2xl text-[#333333] mb-2">Tu carrito está vacío</h2>
-                    <p class="text-[#666666] mb-6">Agrega productos desde nuestra tienda</p>
-                    <a href="/tienda" class="inline-block px-8 py-3 bg-[#B78B1E] text-white rounded font-semibold tracking-wide uppercase hover:bg-[#007078] transition-all duration-300 hover:shadow-lg">
-                        Ir a la Tienda
+            <div class="lg:col-span-2! space-y-6!">
+                <!-- Contenedor de productos -->
+                <div id="carrito-productos" class="space-y-6!">
+                    <!-- Los productos se añadirán dinámicamente aquí -->
+                </div>
+                
+                <!-- Mensaje carrito vacío -->
+                <div id="carrito-vacio" class="bg-[#f0f0f0]! rounded-2xl! shadow-lg! p-12! text-center! border-l-4! border-[#B78B1E]!">
+                    <div class="w-24! h-24! mx-auto! mb-6! bg-linear-to-br! from-[#007078]! to-[#005a61]! rounded-full! flex! items-center! justify-center! shadow-lg!">
+                        <svg class="w-12! h-12! text-white!" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h2 class="font-['EB_Garamond']! text-3xl! text-[#007078]! font-bold! mb-3!">Tu carrito está vacío</h2>
+                    <p class="font-['Montserrat']! text-[#666666]! mb-8! font-medium!">Descubre nuestra colección exclusiva de productos de lujo</p>
+                    <a href="/tienda" class="inline-flex! items-center! gap-3! bg-[#B78B1E]! hover:bg-[#007078]! text-white! font-['Montserrat']! font-bold! px-10! py-4! rounded-full! transition-all! duration-300! hover:shadow-xl! hover:-translate-y-1! uppercase! tracking-wider! text-sm!">
+                        <svg class="w-5! h-5!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                        </svg>
+                        Explorar Tienda
                     </a>
                 </div>
             </div>
 
             <!-- Resumen del pedido -->
-            <div class="lg:col-span-1">
-                <div class="bg-white rounded-lg shadow-md p-6 sticky top-24">
-                    <h2 class="font-serif text-2xl font-semibold mb-6 text-[#333333]">Resumen del Pedido</h2>
+            <div class="lg:col-span-1!">
+                <div class="bg-[#f0f0f0]! rounded-2xl! shadow-lg! p-8! sticky! top-24! border-t-4! border-[#007078]!">
+                    <div class="flex! items-center! gap-3! mb-8!">
+                        <div class="w-10! h-10! bg-[#007078]! rounded-full! flex! items-center! justify-center!">
+                            <svg class="w-5! h-5! text-white!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            </svg>
+                        </div>
+                        <h2 class="font-['EB_Garamond']! text-2xl! font-bold! text-[#007078]!">Resumen del Pedido</h2>
+                    </div>
                     
-                    <div class="space-y-4 mb-6">
-                        <div class="flex justify-between text-[#666666]">
-                            <span>Subtotal:</span>
-                            <span id="subtotal" class="font-semibold">0,00 €</span>
+                    <div class="space-y-4! mb-8!">
+                        <div class="flex! justify-between! font-['Montserrat']! text-[#666666]!">
+                            <span class="font-medium!">Subtotal:</span>
+                            <span id="subtotal" class="font-bold! text-[#333333]!">0,00 €</span>
                         </div>
-                        <div class="flex justify-between text-[#666666]">
-                            <span>Envío:</span>
-                            <span id="envio" class="font-semibold">0,00 €</span>
+                        <div class="flex! justify-between! font-['Montserrat']! text-[#666666]!">
+                            <span class="font-medium!">Envío:</span>
+                            <span id="envio" class="font-bold! text-[#333333]!">0,00 €</span>
                         </div>
-                        <div class="flex justify-between text-[#666666]">
-                            <span>IVA (21%):</span>
-                            <span id="iva" class="font-semibold">0,00 €</span>
+                        <div class="flex! justify-between! font-['Montserrat']! text-[#666666]!">
+                            <span class="font-medium!">IVA (21%):</span>
+                            <span id="iva" class="font-bold! text-[#333333]!">0,00 €</span>
                         </div>
-                        <hr class="border-gray-200">
-                        <div class="flex justify-between text-xl font-bold text-[#007078]">
-                            <span>Total:</span>
-                            <span id="total">0,00 €</span>
+                        <div class="border-t-2! border-[#E9E4E3]! pt-4! mt-4!">
+                            <div class="flex! justify-between! items-center!">
+                                <span class="font-['EB_Garamond']! text-xl! font-bold! text-[#007078]!">Total:</span>
+                                <span id="total" class="font-['Montserrat']! text-2xl! font-bold! text-[#B78B1E]!">0,00 €</span>
+                            </div>
                         </div>
+                    </div>
+
+                    <!-- Info envío gratis -->
+                    <div class="bg-[#007078]/10! rounded-xl! p-4! mb-6!">
+                        <p class="font-['Montserrat']! text-sm! text-[#007078]! font-medium! flex! items-center! gap-2!">
+                            <svg class="w-5! h-5!" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z" clip-rule="evenodd"/>
+                                <path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z"/>
+                            </svg>
+                            Envío gratis en pedidos +300€
+                        </p>
                     </div>
 
                     <button 
                         id="btn-finalizar"
-                        class="w-full py-3 bg-[#B78B1E] text-white rounded font-semibold tracking-wide uppercase hover:bg-[#007078] transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed mb-3"
+                        class="w-full! py-4! bg-[#B78B1E]! hover:bg-[#007078]! text-white! font-['Montserrat']! font-bold! rounded-full! uppercase! tracking-wider! text-sm! transition-all! duration-300! hover:shadow-xl! hover:-translate-y-1! disabled:opacity-50! disabled:cursor-not-allowed! disabled:hover:transform-none! mb-4!"
                         disabled>
                         Finalizar Compra
                     </button>
 
-                    <a href="/tienda" class="block text-center text-[#007078] font-medium hover:text-[#B78B1E] transition-colors">
+                    <a href="/tienda" class="flex! items-center! justify-center! gap-2! font-['Montserrat']! text-[#007078]! font-semibold! hover:text-[#B78B1E]! transition-colors! duration-300!">
+                        <svg class="w-4! h-4!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                        </svg>
                         Seguir Comprando
                     </a>
                 </div>
@@ -68,18 +108,23 @@ import Store from '../layouts/Store.astro';
 
     <!-- Script de funcionalidad del carrito -->
     <script is:inline>
-        // Datos de ejemplo de productos (en producción vendrían de una API o localStorage)
-        const productosDisponibles = [
-            { id: 1, nombre: 'Set Travelis', precio: 599.85, categoria: 'Set Completo', imagen: '🧳' },
-            { id: 2, nombre: 'Set Luxuria', precio: 899.85, categoria: 'Set Completo', imagen: '💼' },
-            { id: 3, nombre: 'Set SureLux', precio: 999.85, categoria: 'Set Completo', imagen: '✨' },
-            { id: 4, nombre: 'Maleta Travelis', precio: 199.85, categoria: 'Maleta', imagen: '🧳' },
-            { id: 5, nombre: 'Maleta Luxuria', precio: 299.85, categoria: 'Maleta', imagen: '💼' },
-            { id: 6, nombre: 'Maleta SureLux', precio: 599.85, categoria: 'Maleta', imagen: '✨' },
-            { id: 7, nombre: 'Maletín Travelis', precio: 79.85, categoria: 'Maletín', imagen: '👜' },
-            { id: 8, nombre: 'Maletín Luxuria', precio: 95.99, categoria: 'Maletín', imagen: '💼' },
-            { id: 9, nombre: 'Maletín SureLux', precio: 249.85, categoria: 'Maletín', imagen: '✨' }
-        ];
+        // Mapeo de productos con sus imágenes
+        const imagenesProductos = {
+            'set-travelis': '/maletas-set-1.jpg',
+            'set-luxuria': '/maletas-set-2.jpg',
+            'set-surelux': '/maletas-set-3.jpg',
+            'maleta-travelis': '/maleta-1.jpg',
+            'maleta-luxuria': '/maleta-2.jpg',
+            'maleta-surelux': '/maleta-3.jpg',
+            'maletin-travelis': '/maletin-1.jpg',
+            'maletin-luxuria': '/maletin-2.jpg',
+            'maletin-surelux': '/maletin-3.jpg'
+        };
+
+        // Obtener imagen del producto
+        function obtenerImagen(id) {
+            return imagenesProductos[id] || '/maletas-set-1.jpg';
+        }
 
         // Obtener carrito del localStorage (compatible con StoreContainer.jsx)
         function obtenerCarrito() {
@@ -111,7 +156,7 @@ import Store from '../layouts/Store.astro';
         // Renderizar productos del carrito
         function renderizarCarrito() {
             const carrito = obtenerCarrito();
-            const contenedor = document.getElementById('carrito-items');
+            const contenedor = document.getElementById('carrito-productos');
             const carritoVacio = document.getElementById('carrito-vacio');
 
             const productos = Object.values(carrito);
@@ -126,30 +171,31 @@ import Store from '../layouts/Store.astro';
             carritoVacio.style.display = 'none';
             
             contenedor.innerHTML = productos.map(item => {
+                const imagenUrl = obtenerImagen(item.id);
                 return `
-                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row gap-6 items-center transition-all duration-300 hover:shadow-lg">
-                        <div class="w-24 h-24 bg-gradient-to-br from-teal-500 to-teal-700 rounded-lg flex items-center justify-center text-4xl flex-shrink-0">
-                            🧳
+                    <div class="bg-[#f0f0f0]! rounded-2xl! shadow-lg! p-6! flex! flex-col! md:flex-row! gap-6! items-center! transition-all! duration-300! hover:shadow-xl! hover:-translate-y-1! border-l-4! border-[#B78B1E]!">
+                        <div class="w-24! h-24! rounded-xl! flex-shrink-0! shadow-lg! overflow-hidden!">
+                            <img src="${imagenUrl}" alt="${item.nombre}" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         
-                        <div class="grow text-center md:text-left">
-                            <h3 class="font-serif text-xl font-semibold text-[#333333] mb-1">${item.nombre}</h3>
-                            <p class="text-2xl font-bold text-[#B78B1E]">${formatearPrecio(item.precio)}</p>
+                        <div class="grow! text-center! md:text-left!">
+                            <h3 class="font-['EB_Garamond']! text-xl! font-bold! text-[#007078]! mb-2!">${item.nombre}</h3>
+                            <p class="font-['Montserrat']! text-2xl! font-bold! text-[#B78B1E]!">${formatearPrecio(item.precio)}</p>
                         </div>
 
-                        <div class="flex items-center gap-4 flex-shrink-0">
-                            <button onclick="actualizarCantidad('${item.id}', -1)" class="w-8 h-8 bg-red-500 hover:bg-red-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                        <div class="flex! items-center! gap-4! flex-shrink-0! bg-white! rounded-full! px-4! py-2! shadow-md!">
+                            <button onclick="actualizarCantidad('${item.id}', -1)" class="w-10! h-10! bg-[#007078]! hover:bg-[#005a61]! text-white! rounded-full! font-bold! transition-all! duration-300! flex! items-center! justify-center! text-xl! hover:shadow-lg!">
                                 −
                             </button>
-                            <span class="text-lg font-semibold min-w-[2rem] text-center">${item.cantidad}</span>
-                            <button onclick="actualizarCantidad('${item.id}', 1)" class="w-8 h-8 bg-green-500 hover:bg-green-600 text-white rounded-full font-bold transition-colors flex items-center justify-center">
+                            <span class="font-['Montserrat']! text-lg! font-bold! min-w-[2rem]! text-center! text-[#333333]!">${item.cantidad}</span>
+                            <button onclick="actualizarCantidad('${item.id}', 1)" class="w-10! h-10! bg-[#B78B1E]! hover:bg-[#9a7318]! text-white! rounded-full! font-bold! transition-all! duration-300! flex! items-center! justify-center! text-xl! hover:shadow-lg!">
                                 +
                             </button>
                         </div>
 
-                        <button onclick="eliminarProducto('${item.id}')" class="text-red-500 hover:text-red-700 transition-colors p-2" title="Eliminar producto">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                        <button onclick="eliminarProducto('${item.id}')" class="w-12! h-12! bg-[#003a4b]! hover:bg-[#002a38]! text-white! rounded-full! transition-all! duration-300! flex! items-center! justify-center! hover:shadow-lg! hover:-translate-y-1!" title="Eliminar producto">
+                            <svg style="width: 20px; height: 20px;" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
                             </svg>
                         </button>
                     </div>
@@ -299,6 +345,17 @@ import Store from '../layouts/Store.astro';
 </Store>
 
 <style>
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
     @keyframes fadeInNav {
         from {
             opacity: 0;
