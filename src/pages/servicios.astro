@@ -5,5 +5,266 @@ import GSAPCarousel from '../components/GSAPCarousel.astro';
 ---
 
 <Layout>
+    <h1 class="hidden">Nuestros Servicios</h1>
     <GSAPCarousel/>
+    
+    <!-- Hero Section -->
+    <section class="relative! py-20! px-4! sm:px-6! lg:px-8! bg-linear-to-br! from-[#007078]! to-[#005a61]! text-white! text-center!">
+        <div class="max-w-4xl! mx-auto!">
+            <h1 class="font-['EB_Garamond']! text-4xl! sm:text-5xl! lg:text-6xl! font-semibold! mb-6! text-white! tracking-wide!">
+                Nuestros Servicios
+            </h1>
+            <p class="font-['Montserrat']! text-lg! sm:text-xl! text-[#E9E4E3]! max-w-2xl! mx-auto! leading-relaxed! font-light!">
+                Descubre experiencias de viaje únicas diseñadas para quienes buscan la excelencia en cada detalle
+            </p>
+            <div class="mt-8! flex! justify-center! gap-2!">
+                <span class="w-16! h-1! bg-[#B78B1E]! rounded-full!"></span>
+                <span class="w-4! h-1! bg-[#B78B1E]/50! rounded-full!"></span>
+                <span class="w-2! h-1! bg-[#B78B1E]/30! rounded-full!"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Grid -->
+    <section class="py-16! sm:py-20! lg:py-24! px-4! sm:px-6! lg:px-8! bg-[#E9E4E3]!">
+        <div class="max-w-7xl! mx-auto!">
+            
+            <!-- Servicio 1: Destinos -->
+            <article class="group! mb-16! lg:mb-24! grid! lg:grid-cols-2! gap-0! bg-white! rounded-2xl! overflow-hidden! shadow-xl! hover:shadow-2xl! transition-all! duration-500!">
+                <div class="relative! overflow-hidden!">
+                    <img 
+                        src="/servicios-destinos.jpg" 
+                        alt="Destinos exclusivos" 
+                        class="w-full! h-72! sm:h-80! lg:h-full! object-cover! group-hover:scale-105! transition-transform! duration-700!"
+                    >
+                    <div class="absolute! inset-0! bg-linear-to-t! from-black/40! to-transparent! lg:bg-linear-to-r!"></div>
+                    <span class="absolute! top-6! left-6! bg-[#B78B1E]! text-white! px-4! py-2! rounded-full! text-sm! font-semibold! tracking-wider! uppercase!">
+                        Premium
+                    </span>
+                </div>
+                <div class="p-8! sm:p-10! lg:p-12! flex! flex-col! justify-center!">
+                    <div class="flex! items-center! gap-3! mb-4!">
+                        <div class="w-12! h-12! bg-[#007078]/10! rounded-full! flex! items-center! justify-center!">
+                            <svg class="w-6! h-6! text-[#007078]!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <span class="text-[#B78B1E]! font-semibold! text-sm! tracking-widest! uppercase!">Explora el mundo</span>
+                    </div>
+                    <h2 class="font-['EB_Garamond']! text-3xl! sm:text-4xl! font-semibold! text-[#007078]! mb-4!">
+                        Destinos
+                    </h2>
+                    <p class="font-['Montserrat']! text-[#666666]! text-base! sm:text-lg! leading-relaxed! mb-8!">
+                        Explora los destinos más exclusivos en la Península Ibérica. Desde las costas del Mediterráneo hasta las montañas de los Pirineos, te llevamos a lugares que despiertan los sentidos.
+                    </p>
+                    <a href="/destinos" class="inline-flex! items-center! gap-3! bg-[#B78B1E]! hover:bg-[#007078]! text-white! px-8! py-4! rounded-lg! font-semibold! text-sm! tracking-wider! uppercase! transition-all! duration-300! w-fit! group-hover:translate-x-2!">
+                        Explora Destinos
+                        <svg class="w-5! h-5!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Servicio 2: Eventos -->
+            <article class="group! mb-16! lg:mb-24! grid! lg:grid-cols-2! gap-0! bg-white! rounded-2xl! overflow-hidden! shadow-xl! hover:shadow-2xl! transition-all! duration-500!">
+                <div class="p-8! sm:p-10! lg:p-12! flex! flex-col! justify-center! lg:order-1!">
+                    <div class="flex! items-center! gap-3! mb-4!">
+                        <div class="w-12! h-12! bg-[#007078]/10! rounded-full! flex! items-center! justify-center!">
+                            <svg class="w-6! h-6! text-[#007078]!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <span class="text-[#B78B1E]! font-semibold! text-sm! tracking-widest! uppercase!">Momentos únicos</span>
+                    </div>
+                    <h2 class="font-['EB_Garamond']! text-3xl! sm:text-4xl! font-semibold! text-[#007078]! mb-4!">
+                        Eventos
+                    </h2>
+                    <p class="font-['Montserrat']! text-[#666666]! text-base! sm:text-lg! leading-relaxed! mb-8!">
+                        Organizamos eventos exclusivos que transforman cada ocasión en una experiencia memorable. Bodas de ensueño, celebraciones corporativas y encuentros privados con el más alto nivel de elegancia.
+                    </p>
+                    <a href="/eventos" class="inline-flex! items-center! gap-3! bg-[#B78B1E]! hover:bg-[#007078]! text-white! px-8! py-4! rounded-lg! font-semibold! text-sm! tracking-wider! uppercase! transition-all! duration-300! w-fit! group-hover:translate-x-2!">
+                        Descubre Eventos
+                        <svg class="w-5! h-5!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="relative! overflow-hidden! lg:order-2!">
+                    <img 
+                        src="/servicios-eventos.jpg" 
+                        alt="Eventos exclusivos" 
+                        class="w-full! h-72! sm:h-80! lg:h-full! object-cover! group-hover:scale-105! transition-transform! duration-700!"
+                    >
+                    <div class="absolute! inset-0! bg-linear-to-t! from-black/40! to-transparent! lg:bg-linear-to-l!"></div>
+                    <span class="absolute! top-6! right-6! bg-[#007078]! text-white! px-4! py-2! rounded-full! text-sm! font-semibold! tracking-wider! uppercase!">
+                        Exclusivo
+                    </span>
+                </div>
+            </article>
+
+            <!-- Servicio 3: Hoteles -->
+            <article class="group! mb-16! lg:mb-24! grid! lg:grid-cols-2! gap-0! bg-white! rounded-2xl! overflow-hidden! shadow-xl! hover:shadow-2xl! transition-all! duration-500!">
+                <div class="relative! overflow-hidden!">
+                    <img 
+                        src="/servicios-hotel.jpg" 
+                        alt="Hoteles de lujo" 
+                        class="w-full! h-72! sm:h-80! lg:h-full! object-cover! group-hover:scale-105! transition-transform! duration-700!"
+                    >
+                    <div class="absolute! inset-0! bg-linear-to-t! from-black/40! to-transparent! lg:bg-linear-to-r!"></div>
+                    <span class="absolute! top-6! left-6! bg-[#B78B1E]! text-white! px-4! py-2! rounded-full! text-sm! font-semibold! tracking-wider! uppercase!">
+                        5 Estrellas
+                    </span>
+                </div>
+                <div class="p-8! sm:p-10! lg:p-12! flex! flex-col! justify-center!">
+                    <div class="flex! items-center! gap-3! mb-4!">
+                        <div class="w-12! h-12! bg-[#007078]/10! rounded-full! flex! items-center! justify-center!">
+                            <svg class="w-6! h-6! text-[#007078]!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                        </div>
+                        <span class="text-[#B78B1E]! font-semibold! text-sm! tracking-widest! uppercase!">Alojamiento premium</span>
+                    </div>
+                    <h2 class="font-['EB_Garamond']! text-3xl! sm:text-4xl! font-semibold! text-[#007078]! mb-4!">
+                        Hoteles
+                    </h2>
+                    <p class="font-['Montserrat']! text-[#666666]! text-base! sm:text-lg! leading-relaxed! mb-8!">
+                        Seleccionamos los mejores hoteles de lujo para garantizar que tu estancia sea perfecta. Desde boutique hotels con encanto hasta grandes resorts con todas las comodidades.
+                    </p>
+                    <a href="/hoteles" class="inline-flex! items-center! gap-3! bg-[#B78B1E]! hover:bg-[#007078]! text-white! px-8! py-4! rounded-lg! font-semibold! text-sm! tracking-wider! uppercase! transition-all! duration-300! w-fit! group-hover:translate-x-2!">
+                        Ver Hoteles
+                        <svg class="w-5! h-5!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Servicio 4: Chalets -->
+            <article class="group! grid! lg:grid-cols-2! gap-0! bg-white! rounded-2xl! overflow-hidden! shadow-xl! hover:shadow-2xl! transition-all! duration-500!">
+                <div class="p-8! sm:p-10! lg:p-12! flex! flex-col! justify-center! lg:order-1!">
+                    <div class="flex! items-center! gap-3! mb-4!">
+                        <div class="w-12! h-12! bg-[#007078]/10! rounded-full! flex! items-center! justify-center!">
+                            <svg class="w-6! h-6! text-[#007078]!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                            </svg>
+                        </div>
+                        <span class="text-[#B78B1E]! font-semibold! text-sm! tracking-widest! uppercase!">Privacidad total</span>
+                    </div>
+                    <h2 class="font-['EB_Garamond']! text-3xl! sm:text-4xl! font-semibold! text-[#007078]! mb-4!">
+                        Chalets
+                    </h2>
+                    <p class="font-['Montserrat']! text-[#666666]! text-base! sm:text-lg! leading-relaxed! mb-8!">
+                        Villas y chalets privados en las ubicaciones más privilegiadas. Disfruta de la máxima privacidad y comodidad con servicios personalizados a tu medida.
+                    </p>
+                    <a href="/chalets" class="inline-flex! items-center! gap-3! bg-[#B78B1E]! hover:bg-[#007078]! text-white! px-8! py-4! rounded-lg! font-semibold! text-sm! tracking-wider! uppercase! transition-all! duration-300! w-fit! group-hover:translate-x-2!">
+                        Explorar Chalets
+                        <svg class="w-5! h-5!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="relative! overflow-hidden! lg:order-2!">
+                    <img 
+                        src="/servicios-chalets.jpg" 
+                        alt="Chalets exclusivos" 
+                        class="w-full! h-72! sm:h-80! lg:h-full! object-cover! group-hover:scale-105! transition-transform! duration-700!"
+                    >
+                    <div class="absolute! inset-0! bg-linear-to-t! from-black/40! to-transparent! lg:bg-linear-to-l!"></div>
+                    <span class="absolute! top-6! right-6! bg-[#007078]! text-white! px-4! py-2! rounded-full! text-sm! font-semibold! tracking-wider! uppercase!">
+                        Luxury
+                    </span>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20! px-4! sm:px-6! lg:px-8! bg-linear-to-br! from-[#007078]! to-[#005a61]! relative! overflow-hidden!">
+        <!-- Decorative elements -->
+        <div class="absolute! top-0! left-0! w-64! h-64! bg-[#B78B1E]/10! rounded-full! -translate-x-1/2! -translate-y-1/2!"></div>
+        <div class="absolute! bottom-0! right-0! w-96! h-96! bg-[#B78B1E]/10! rounded-full! translate-x-1/3! translate-y-1/3!"></div>
+        
+        <div class="max-w-4xl! mx-auto! text-center! relative! z-10!">
+            <h2 class="font-['EB_Garamond']! text-3xl! sm:text-4xl! lg:text-5xl! font-semibold! text-white! mb-6!">
+                ¿Listo para tu próxima aventura?
+            </h2>
+            <p class="font-['Montserrat']! text-lg! sm:text-xl! text-[#E9E4E3]! mb-10! max-w-2xl! mx-auto! leading-relaxed!">
+                Nuestros expertos en viajes de lujo están preparados para diseñar la experiencia perfecta para ti
+            </p>
+            <div class="flex! flex-col! sm:flex-row! gap-4! justify-center! items-center!">
+                <a href="/contacto" class="inline-flex! items-center! gap-3! bg-[#B78B1E]! hover:bg-white! hover:text-[#007078]! text-white! px-10! py-4! rounded-lg! font-semibold! text-sm! tracking-wider! uppercase! transition-all! duration-300!">
+                    Contactar Ahora
+                    <svg class="w-5! h-5!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </a>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16! sm:py-20! px-4! sm:px-6! lg:px-8! bg-[#E9E4E3]!">
+        <div class="max-w-7xl! mx-auto!">
+            <div class="text-center! mb-16!">
+                <h2 class="font-['EB_Garamond']! text-3xl! sm:text-4xl! font-semibold! text-[#007078]! mb-4!">
+                    ¿Por qué elegirnos?
+                </h2>
+                <p class="font-['Montserrat']! text-[#666666]! text-lg! max-w-2xl! mx-auto!">
+                    Más de una década creando experiencias de viaje inolvidables
+                </p>
+            </div>
+            
+            <div class="grid! sm:grid-cols-2! lg:grid-cols-4! gap-8!">
+                <!-- Feature 1 -->
+                <div class="bg-white! p-8! rounded-2xl! text-center! shadow-lg! hover:shadow-xl! transition-all! duration-300! hover:-translate-y-2!">
+                    <div class="w-16! h-16! bg-[#007078]/10! rounded-full! flex! items-center! justify-center! mx-auto! mb-6!">
+                        <svg class="w-8! h-8! text-[#B78B1E]!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-['EB_Garamond']! text-xl! font-semibold! text-[#333333]! mb-3!">Experiencia</h3>
+                    <p class="font-['Montserrat']! text-[#666666]! text-sm! leading-relaxed!">+15 años creando viajes de lujo personalizados</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white! p-8! rounded-2xl! text-center! shadow-lg! hover:shadow-xl! transition-all! duration-300! hover:-translate-y-2!">
+                    <div class="w-16! h-16! bg-[#007078]/10! rounded-full! flex! items-center! justify-center! mx-auto! mb-6!">
+                        <svg class="w-8! h-8! text-[#B78B1E]!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-['EB_Garamond']! text-xl! font-semibold! text-[#333333]! mb-3!">24/7 Soporte</h3>
+                    <p class="font-['Montserrat']! text-[#666666]! text-sm! leading-relaxed!">Asistencia personalizada durante todo tu viaje</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white! p-8! rounded-2xl! text-center! shadow-lg! hover:shadow-xl! transition-all! duration-300! hover:-translate-y-2!">
+                    <div class="w-16! h-16! bg-[#007078]/10! rounded-full! flex! items-center! justify-center! mx-auto! mb-6!">
+                        <svg class="w-8! h-8! text-[#B78B1E]!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-['EB_Garamond']! text-xl! font-semibold! text-[#333333]! mb-3!">Exclusividad</h3>
+                    <p class="font-['Montserrat']! text-[#666666]! text-sm! leading-relaxed!">Acceso a experiencias y lugares únicos</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-white! p-8! rounded-2xl! text-center! shadow-lg! hover:shadow-xl! transition-all! duration-300! hover:-translate-y-2!">
+                    <div class="w-16! h-16! bg-[#007078]/10! rounded-full! flex! items-center! justify-center! mx-auto! mb-6!">
+                        <svg class="w-8! h-8! text-[#B78B1E]!" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-['EB_Garamond']! text-xl! font-semibold! text-[#333333]! mb-3!">Pasión</h3>
+                    <p class="font-['Montserrat']! text-[#666666]! text-sm! leading-relaxed!">Amamos lo que hacemos y se nota en cada detalle</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
 </Layout>
+

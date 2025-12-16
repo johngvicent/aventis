@@ -15,12 +15,17 @@ const images = [
 <div class="carousel-container h-100 relative overflow-hidden">
     {images.map((image, index) => (
         <div 
-            class={`carousel-slide absolute inset-0 pt-10! px-12! pb-6! bg-cover bg-center flex flex-col justify-center items-center text-center text-white transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+            class={`carousel-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
             style={`background-image: url(${image})`}
             data-index={index}
         >
-            <h4 class="text-3xl font-extrabold tracking-wider text-shadow-lg/20 text-white">Experiencias Exclusivas</h4>
-            <h4 class="text-3xl font-extrabold tracking-wider text-shadow-lg/20 text-white">Viajes Inolvidables</h4>
+            <!-- Textos en esquina superior derecha -->
+            <div class="absolute! top-6! right-6! text-right! z-10!">
+                <h4 class="text-xl! font-bold! tracking-wider! text-shadow-lg/20! text-white!">Experiencias Exclusivas</h4>
+                <h4 class="text-xl! font-bold! tracking-wider! text-shadow-lg/20! text-white!">Viajes Inolvidables</h4>
+            </div>
+            <!-- Logotipo en esquina inferior izquierda -->
+            <img src="/logotipo-blanco.svg" alt="Logo Aventis" class="absolute! bottom-6! left-6! w-40! h-auto! z-10!">
         </div>
     ))}
 </div>
