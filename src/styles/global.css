@@ -200,7 +200,7 @@ button a:hover {
 /* Formularios */
 
 .form-container {
-            background: #0000003f;
+            background: #00000071;
             padding: 2.5rem;
             max-width: 600px;
             width: 100%;
@@ -233,6 +233,8 @@ input[type="text"],
             text-shadow: #202020 1px 1px 2px;
             font-size: 0.95rem;
             transition: border-color 0.3s ease;
+            font-weight: 550;
+            letter-spacing: 0.12em;
         }
 
         input[type="text"]:focus,
